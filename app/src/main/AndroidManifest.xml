@@ -78,6 +78,9 @@
             android:name=".RecordingActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".prediction.PredictionActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
