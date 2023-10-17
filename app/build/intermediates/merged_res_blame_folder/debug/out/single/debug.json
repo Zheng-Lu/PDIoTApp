@@ -24,16 +24,24 @@
         "source": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-main-28:\\drawable\\ic_launcher_background.xml"
     },
     {
+        "merged": "com.specknet.pdiotapp-merged_res-26:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "com.specknet.pdiotapp-main-28:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "com.specknet.pdiotapp-merged_res-26:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "com.specknet.pdiotapp-main-28:/mipmap-xhdpi/ic_launcher_round.png"
+    },
+    {
         "merged": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-merged_res-26:\\mipmap-xxhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-main-28:\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "com.specknet.pdiotapp-merged_res-26:/layout_activity_recording.xml.flat",
-        "source": "com.specknet.pdiotapp-main-28:/layout/activity_recording.xml"
-    },
-    {
         "merged": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-merged_res-26:\\drawable_baseline_account_circle_24.xml.flat",
         "source": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-main-28:\\drawable\\baseline_account_circle_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-merged_res-26:\\layout_activity_main_draft.xml.flat",
+        "source": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-main-28:\\layout\\activity_main_draft.xml"
     },
     {
         "merged": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-merged_res-26:\\drawable_input.xml.flat",
@@ -64,12 +72,12 @@
         "source": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-main-28:\\mipmap-mdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-merged_res-26:\\drawable_ic_baseline_info_24.xml.flat",
-        "source": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-main-28:\\drawable\\ic_baseline_info_24.xml"
-    },
-    {
         "merged": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-merged_res-26:\\layout_activity_recording.xml.flat",
         "source": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-main-28:\\layout\\activity_recording.xml"
+    },
+    {
+        "merged": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-merged_res-26:\\drawable_ic_baseline_info_24.xml.flat",
+        "source": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-main-28:\\drawable\\ic_baseline_info_24.xml"
     },
     {
         "merged": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-merged_res-26:\\layout_login_page.xml.flat",
@@ -82,6 +90,10 @@
     {
         "merged": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-merged_res-26:\\drawable_rounded_button.xml.flat",
         "source": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-main-28:\\drawable\\rounded_button.xml"
+    },
+    {
+        "merged": "com.specknet.pdiotapp-merged_res-26:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "com.specknet.pdiotapp-main-28:/mipmap-xxhdpi/ic_launcher_round.png"
     },
     {
         "merged": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-merged_res-26:\\drawable_indicator_unselected.xml.flat",
@@ -148,16 +160,20 @@
         "source": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-main-28:\\layout\\activity_on_boarding.xml"
     },
     {
-        "merged": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-merged_res-26:\\menu_menu_main.xml.flat",
-        "source": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-main-28:\\menu\\menu_main.xml"
-    },
-    {
         "merged": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-merged_res-26:\\mipmap-xxxhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-main-28:\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
+        "merged": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-merged_res-26:\\menu_menu_main.xml.flat",
+        "source": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-main-28:\\menu\\menu_main.xml"
+    },
+    {
         "merged": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-merged_res-26:\\mipmap-xhdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-main-28:\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "com.specknet.pdiotapp-merged_res-26:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "com.specknet.pdiotapp-main-28:/mipmap-xxxhdpi/ic_launcher_round.png"
     },
     {
         "merged": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-merged_res-26:\\drawable_common_button.xml.flat",
@@ -166,6 +182,10 @@
     {
         "merged": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-merged_res-26:\\layout_activity_live_data.xml.flat",
         "source": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-main-28:\\layout\\activity_live_data.xml"
+    },
+    {
+        "merged": "com.specknet.pdiotapp-merged_res-26:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "com.specknet.pdiotapp-main-28:/mipmap-hdpi/ic_launcher_round.png"
     },
     {
         "merged": "C:\\Users\\abShu\\.gradle\\daemon\\8.0\\com.specknet.pdiotapp-merged_res-26:\\mipmap-xxxhdpi_ic_launcher_round.png.flat",

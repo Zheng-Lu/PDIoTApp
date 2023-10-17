@@ -2410,6 +2410,7 @@ layout activity_barcode
 layout activity_connecting
 layout activity_live_data
 layout activity_main
+layout activity_main_draft
 layout activity_on_boarding
 layout activity_recording
 layout custom_dialog
