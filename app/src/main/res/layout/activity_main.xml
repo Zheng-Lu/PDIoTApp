@@ -27,19 +27,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-<!--Original -->
-<!--        <Button-->
-<!--            android:id="@+id/record_button"-->
-<!--            android:layout_width="550px"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="100px"-->
-<!--            android:background="#03A9F4"-->
-<!--            android:text="Record data"-->
-<!--            android:textColor="#FFFFFF"-->
-<!--            app:layout_constraintBottom_toTopOf="@+id/live_button"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/textView2" />-->
 
         <Button
             android:id="@+id/record_button"

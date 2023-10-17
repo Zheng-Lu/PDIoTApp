@@ -20,6 +20,7 @@ import com.specknet.pdiotapp.bluetooth.ConnectingActivity
 import com.specknet.pdiotapp.live.LiveDataActivity
 import com.specknet.pdiotapp.onboarding.OnBoardingActivity
 import com.specknet.pdiotapp.prediction.PredictionActivity
+import com.specknet.pdiotapp.login.LoginActivity
 import com.specknet.pdiotapp.utils.Constants
 import com.specknet.pdiotapp.utils.Utils
 import kotlinx.android.synthetic.main.activity_main.*
@@ -273,7 +274,12 @@ class MainActivity : AppCompatActivity() {
             startActivity(introIntent)
             return true
         }
-
+        if(id == R.id.log_out) {
+            intent.extras!!.clear()
+            val accountsIntent = Intent(this, LoginActivity::class.java)
+            startActivity(accountsIntent)
+            return true
+        }
         return super.onOptionsItemSelected(item)
     }
 
