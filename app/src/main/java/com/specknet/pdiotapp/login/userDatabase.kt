@@ -1,13 +1,13 @@
-package com.specknet.pdiotapp.login.database
-
-import com.specknet.pdiotapp.login.User
+package com.specknet.pdiotapp.login
 
 import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import java.util.*
 
-class UserDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+class userDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
+
     // create table sql query
     private val CREATE_USER_TABLE = ("CREATE TABLE " + TABLE_USER + "("
             + COLUMN_USER_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COLUMN_USER_NAME + " TEXT,"
@@ -26,9 +26,60 @@ class UserDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
         //Drop User Table if exist
         db.execSQL(DROP_USER_TABLE)
         // Create tables again
+        //db.close()
+        //SQLiteDatabase.deleteDatabase(File(DATABASE_NAME + ".db"))
         onCreate(db)
+
     }
 
+    /**
+     * This method is to fetch all user and return the list of user records
+     *
+     * @return list
+     */
+    /*
+    fun getAllUser(): List<UserModel> {
+
+        // array of columns to fetch
+        val columns = arrayOf(COLUMN_USER_ID, COLUMN_USER_EMAIL, COLUMN_USER_NAME, COLUMN_USER_PASSWORD, COLUMN_USER_LOGGED)
+
+        // sorting orders
+        val sortOrder = "$COLUMN_USER_NAME ASC"
+        val userList = ArrayList<UserModel>()
+
+        val db = this.readableDatabase
+
+        // query the user table
+        val cursor = db.query(TABLE_USER, //Table to query
+            columns,            //columns to return
+            null,     //columns for the WHERE clause
+            null,  //The values for the WHERE clause
+            null,      //group the rows
+            null,       //filter by row groups
+            sortOrder)         //The sort order
+        if (cursor.moveToFirst()) {
+            do {
+                val user = UserModel(id = cursor.getString(cursor.getColumnIndex(COLUMN_USER_ID)).toInt(),
+                    username = cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME)),
+                    email = cursor.getString(cursor.getColumnIndex(COLUMN_USER_EMAIL)),
+                    password = cursor.getString(cursor.getColumnIndex(COLUMN_USER_PASSWORD)),
+                    isLogged = cursor.getString(cursor.getColumnIndex(COLUMN_USER_LOGGED)).toBoolean())
+
+                userList.add(user)
+            } while (cursor.moveToNext())
+        }
+        cursor.close()
+        db.close()
+        return userList
+    }
+     */
+
+
+    /**
+     * This method is to create user record
+     *
+     * @param user
+     */
     fun addUser(user: User) {
         val db = this.writableDatabase
 
@@ -36,7 +87,7 @@ class UserDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
         values.put(COLUMN_USER_NAME, user.username)
         values.put(COLUMN_USER_EMAIL, user.email)
         values.put(COLUMN_USER_PASSWORD, user.password)
-        values.put(COLUMN_USER_LOGGED, user.isLogined)
+        values.put(COLUMN_USER_LOGGED, user.isLogged)
         // Inserting Row
         db.insert(TABLE_USER, null, values)
         db.close()
@@ -45,7 +96,8 @@ class UserDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
     fun getUser(email : String) : User {
         val columns = arrayOf(COLUMN_USER_ID, COLUMN_USER_EMAIL, COLUMN_USER_NAME, COLUMN_USER_PASSWORD, COLUMN_USER_LOGGED)
         val db = this.readableDatabase
-        val cursor = db.query(TABLE_USER, //Table to query
+        val cursor = db.query(
+            TABLE_USER, //Table to query
             columns,            //columns to return
             "$COLUMN_USER_EMAIL = ?",     //columns for the WHERE clause
             arrayOf(email),  //The values for the WHERE clause
@@ -59,14 +111,40 @@ class UserDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
                 username = cursor.getString(cursor.getColumnIndex(COLUMN_USER_NAME)),
                 email = cursor.getString(cursor.getColumnIndex(COLUMN_USER_EMAIL)),
                 password = cursor.getString(cursor.getColumnIndex(COLUMN_USER_PASSWORD)),
-                isLogined = cursor.getString(cursor.getColumnIndex(COLUMN_USER_LOGGED)).toBoolean()
+                isLogged = cursor.getString(cursor.getColumnIndex(COLUMN_USER_LOGGED)).toBoolean()
             )
         }
         cursor.close()
         db.close()
         return user
     }
+    /**
+     * This method to update user record
+     *
+     * @param user
+     */
+    /*
+    fun updateUserSesh(user: UserModel, logged : Boolean) {
+        val db = this.writableDatabase
 
+        val values = ContentValues()
+        values.put(COLUMN_USER_NAME, user.username)
+        values.put(COLUMN_USER_EMAIL, user.email)
+        values.put(COLUMN_USER_PASSWORD, user.password)
+        values.put(COLUMN_USER_LOGGED, logged)
+
+        // updating row
+        db.update(TABLE_USER, values, "$COLUMN_USER_ID = ?",
+            arrayOf(user.id.toString()))
+        db.close()
+    }
+     */
+
+    /**
+     * This method is to update user's password record
+     * @param user
+     * @param pass
+     */
     fun updateUserPass(user: User, pass : String) {
         val db = this.writableDatabase
 
@@ -74,14 +152,38 @@ class UserDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
         values.put(COLUMN_USER_NAME, user.username)
         values.put(COLUMN_USER_EMAIL, user.email)
         values.put(COLUMN_USER_PASSWORD, pass)
-        values.put(COLUMN_USER_LOGGED, user.isLogined)
+        values.put(COLUMN_USER_LOGGED, user.isLogged)
 
         // updating row
-        db.update(TABLE_USER, values, "$COLUMN_USER_ID = ?",
+        db.update(
+            TABLE_USER, values, "$COLUMN_USER_ID = ?",
             arrayOf(user.id.toString()))
         db.close()
     }
+    /**
+     * This method is to delete user record
+     *
+     * @param user
+     */
+    /*
+    fun deleteUser(user: UserModel) {
 
+        val db = this.writableDatabase
+        // delete user record by id
+        db.delete(TABLE_USER, "$COLUMN_USER_ID = ?",
+            arrayOf(user.id.toString()))
+        db.close()
+
+
+    }
+     */
+
+    /**
+     * This method to check user exist or not
+     *
+     * @param email
+     * @return true/false
+     */
     fun checkUser(email: String): Boolean {
 
         // array of columns to fetch
@@ -95,7 +197,13 @@ class UserDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
         val selectionArgs = arrayOf(email)
 
         // query user table with condition
-        val cursor = db.query(TABLE_USER, //Table to query
+        /**
+         * Here query function is used to fetch records from user table this function works like we use sql query.
+         * SQL query equivalent to this query function is
+         * SELECT user_id FROM user WHERE user_email = 'jack@androidtutorialshub.com';
+         */
+        val cursor = db.query(
+            TABLE_USER, //Table to query
             columns,        //columns to return
             selection,      //columns for the WHERE clause
             selectionArgs,  //The values for the WHERE clause
@@ -115,6 +223,13 @@ class UserDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
         return false
     }
 
+    /**
+     * This method to check user exist or not
+     *
+     * @param email
+     * @param password
+     * @return true/false
+     */
     fun checkUser(email: String, password: String): Boolean {
 
         // array of columns to fetch
@@ -129,7 +244,13 @@ class UserDatabase(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, 
         val selectionArgs = arrayOf(email, password)
 
         // query user table with conditions
-        val cursor = db.query(TABLE_USER, //Table to query
+        /**
+         * Here query function is used to fetch records from user table this function works like we use sql query.
+         * SQL query equivalent to this query function is
+         * SELECT user_id FROM user WHERE user_email = 'jack@androidtutorialshub.com' AND user_password = 'qwerty';
+         */
+        val cursor = db.query(
+            TABLE_USER, //Table to query
             columns, //columns to return
             selection, //columns for the WHERE clause
             selectionArgs, //The values for the WHERE clause

@@ -4,16 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".login.LoginActivity">
+    tools:context="login.LoginActivity">
 
     <TextView
         android:id="@+id/Login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginBottom="30dp"
         android:text="Login"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/L_UserInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,20 +41,24 @@
 
             <TextView
                 android:id="@+id/L_EmailText"
-                android:layout_width="70dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:text="E-mail:" />
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp" />
 
             <EditText
                 android:id="@+id/L_EmailInput"
-                android:layout_width="match_parent"
+                android:layout_width="375dp"
                 android:layout_height="50dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/input"
+                android:drawableLeft="@drawable/ic_baseline_email_24"
+                android:drawablePadding="10dp"
                 android:ems="10"
-                android:hint="Enter E-mail..."
+                android:hint="Enter Email..."
                 android:inputType="textPersonName"
-                android:singleLine="true" />
+                android:paddingVertical="5dp"
+                android:paddingLeft="10dp" />
 
         </LinearLayout>
 
@@ -65,26 +71,33 @@
 
             <TextView
                 android:id="@+id/L_PasswordText"
-                android:layout_width="70dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
-                android:text="Password:" />
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginLeft="10dp" />
 
             <EditText
                 android:id="@+id/L_PasswordInput"
-                android:layout_width="match_parent"
+                android:layout_width="375dp"
                 android:layout_height="50dp"
                 android:layout_marginRight="10dp"
                 android:ems="10"
+                android:paddingLeft="10dp"
+                android:background="@drawable/input"
+                android:drawableLeft="@drawable/ic_baseline_info_24"
                 android:hint="Enter Password..."
                 android:inputType="textPassword"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:drawablePadding="10dp"
+                android:paddingVertical="5dp"
+                />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/L_LoginButtons"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:orientation="vertical"
@@ -97,20 +110,25 @@
             android:id="@+id/LoginSubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/rounded_button"
             android:text="Login" />
-
-        <Button
-            android:id="@+id/ForgotButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Forgot my password" />
 
         <Button
             android:id="@+id/SignupButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/rounded_button"
+            android:text="Register" />
 
-            android:text="Signup" />
+        <Button
+            android:id="@+id/ForgotButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_button"
+            android:text="Forgot password" />
+
 
     </LinearLayout>
 

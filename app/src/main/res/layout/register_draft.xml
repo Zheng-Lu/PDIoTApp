@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
         android:layout_marginBottom="25dp"
-        android:text="Register"
+        android:text="Signup"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toTopOf="@+id/S_UserInput"
         app:layout_constraintEnd_toEndOf="parent"
@@ -151,7 +151,7 @@
             android:id="@+id/HaveAccountButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="I already have an account" />
+            android:text="Back" />
 
     </LinearLayout>
 

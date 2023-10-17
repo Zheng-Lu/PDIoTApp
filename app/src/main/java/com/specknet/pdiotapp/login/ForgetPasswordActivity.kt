@@ -2,18 +2,18 @@ package com.specknet.pdiotapp.login
 
 import android.app.Activity
 import android.os.Bundle
-import android.view.View
-import android.view.inputmethod.InputMethodManager
-import android.widget.Button
-import android.widget.EditText
-import android.widget.LinearLayout
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import android.view.View
+
+import android.view.inputmethod.InputMethodManager
+
 import com.specknet.pdiotapp.R
-import com.specknet.pdiotapp.login.database.UserDatabase
 import com.specknet.pdiotapp.login.utils.InputValidator
 
+
 class ForgetPasswordActivity : AppCompatActivity(), View.OnClickListener {
+
     private val activity = this@ForgetPasswordActivity
 
     private lateinit var textInputLayoutEmail: LinearLayout
@@ -28,12 +28,12 @@ class ForgetPasswordActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var appCompatTextViewLoginLink: Button
 
     private lateinit var inputValidator: InputValidator
-    private lateinit var userDatabase: UserDatabase
+    private lateinit var userDatabase: userDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.forgot_pass_draft)
+        setContentView(R.layout.forgot_draft)
 
         // hiding the action bar
         supportActionBar!!.hide()
@@ -48,7 +48,9 @@ class ForgetPasswordActivity : AppCompatActivity(), View.OnClickListener {
         initObjects()
     }
 
-
+    /**
+     * This method is to initialize views
+     */
     private fun initViews() {
 
         textInputLayoutEmail = findViewById<LinearLayout>(R.id.F_Email)
@@ -65,20 +67,31 @@ class ForgetPasswordActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
-
+    /**
+     * This method is to initialize listeners
+     */
     private fun initListeners() {
         appCompatButtonResetPass.setOnClickListener(this)
         appCompatTextViewLoginLink.setOnClickListener(this)
 
     }
 
-
+    /**
+     * This method is to initialize objects to be used
+     */
     private fun initObjects() {
-        userDatabase = UserDatabase(activity)
         inputValidator = InputValidator(activity)
+        userDatabase = userDatabase(activity)
+
+
     }
 
 
+    /**
+     * This implemented method is to listen the click on view
+     *
+     * @param v
+     */
     override fun onClick(v: View) {
         when (v.id) {
 
@@ -88,6 +101,9 @@ class ForgetPasswordActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    /**
+     * This method is to validate the input text fields and post data to SQLite
+     */
     private fun postDataToSQLite() {
 
         if (!inputValidator.isInputEditTextFilled(textInputEditTextEmail)) {
@@ -129,14 +145,22 @@ class ForgetPasswordActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
+    /**
+     * This method is to empty all input edit text
+     */
     private fun emptyInputEditText() {
         textInputEditTextEmail.text = null
         textInputEditTextPassword.text = null
         textInputEditTextConfirmPassword.text = null
     }
 
+    /**
+     * This method is to hide keyboard away from screen
+     * @param view
+     */
     private fun hideKeyboardFrom(view: View) {
         val imm = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
+
 }

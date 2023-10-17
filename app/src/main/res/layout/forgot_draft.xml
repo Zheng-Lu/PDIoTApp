@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="userActivities.ForgetActivity">
+    tools:context=".login.ForgetPasswordActivity">
 
     <TextView
         android:id="@+id/Forgot"
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
         android:layout_marginBottom="25dp"
-        android:text="Reset Your Password"
+        android:text="Reset Password"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toTopOf="@+id/F_UserInput"
         app:layout_constraintEnd_toEndOf="parent"
@@ -133,7 +133,7 @@
             android:id="@+id/RememberedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="I remember my password" />
+            android:text="Back" />
 
     </LinearLayout>
 

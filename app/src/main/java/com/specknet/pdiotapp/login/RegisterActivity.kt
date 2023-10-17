@@ -5,15 +5,19 @@ import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
-import com.specknet.pdiotapp.login.database.UserDatabase
-import com.specknet.pdiotapp.login.utils.InputValidator
+
 import android.view.inputmethod.InputMethodManager
 
 import com.specknet.pdiotapp.R
+import com.specknet.pdiotapp.login.utils.InputValidator
 import java.io.File
 
+
 class RegisterActivity : AppCompatActivity(), View.OnClickListener {
+
     private val activity = this@RegisterActivity
+
+
 
     private lateinit var textInputLayoutName: LinearLayout
     private lateinit var textInputLayoutEmail: LinearLayout
@@ -29,12 +33,12 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var appCompatTextViewLoginLink: Button
 
     private lateinit var inputValidator: InputValidator
-    private lateinit var userDatabase: UserDatabase
+    private lateinit var userDatabase: userDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.register_page)
+        setContentView(R.layout.register_draft)
 
         // hiding the action bar
         supportActionBar!!.hide()
@@ -49,7 +53,9 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         initObjects()
     }
 
-
+    /**
+     * This method is to initialize views
+     */
     private fun initViews() {
 
         textInputLayoutName = findViewById<LinearLayout>(R.id.S_UserName)
@@ -68,17 +74,30 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
+    /**
+     * This method is to initialize listeners
+     */
     private fun initListeners() {
         appCompatButtonRegister.setOnClickListener(this)
         appCompatTextViewLoginLink.setOnClickListener(this)
+
     }
 
+    /**
+     * This method is to initialize objects to be used
+     */
     private fun initObjects() {
-        userDatabase = UserDatabase(activity)
         inputValidator = InputValidator(activity)
+        userDatabase = userDatabase(activity)
+
+
     }
 
 
+    /**
+     * This implemented method is to listen the click on view
+     * @param v
+     */
     override fun onClick(v: View) {
         when (v.id) {
 
@@ -88,6 +107,9 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    /**
+     * This method is to validate the input text fields and post data to SQLite
+     */
     private fun postDataToSQLite() {
         if (!inputValidator.isInputEditTextFilled(textInputEditTextName)) {
             hideKeyboardFrom(textInputLayoutEmail)
@@ -143,6 +165,9 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
+    /**
+     * This method is to empty all input edit text
+     */
     private fun emptyInputEditText() {
         textInputEditTextName.text = null
         textInputEditTextEmail.text = null
@@ -150,6 +175,10 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
         textInputEditTextConfirmPassword.text = null
     }
 
+    /**
+     * This method is to hide keyboard away from user
+     * @param view
+     */
     private fun hideKeyboardFrom(view: View) {
         val imm = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view.windowToken, 0)
