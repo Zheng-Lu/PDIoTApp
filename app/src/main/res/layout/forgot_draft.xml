@@ -10,9 +10,12 @@
         android:id="@+id/Forgot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:layout_marginBottom="25dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginBottom="30dp"
         android:text="Reset Password"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textColor="@color/brown"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toTopOf="@+id/F_UserInput"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +27,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:layout_marginBottom="150dp"
+        android:layout_marginBottom="130dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@id/F_ForgotButtons"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,25 +38,31 @@
             android:id="@+id/F_Email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/F_EmailText"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginLeft="0dp"
                 android:text="E-mail:" />
 
             <EditText
                 android:id="@+id/F_EmailInput"
-                android:layout_width="match_parent"
+                android:layout_width="375dp"
                 android:layout_height="50dp"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/input"
+                android:drawableLeft="@drawable/ic_baseline_email_24"
+                android:drawablePadding="10dp"
                 android:ems="10"
-                android:hint="Your E-mail..."
+                android:hint="Your E-mail registered..."
                 android:inputType="textPersonName"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:paddingVertical="5dp"
+                android:paddingLeft="10dp" />
 
         </LinearLayout>
 
@@ -62,25 +71,31 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:gravity="center_horizontal"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/F_PasswordText"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginLeft="0dp"
                 android:text="New Password:" />
 
             <EditText
                 android:id="@+id/F_PasswordInput"
-                android:layout_width="match_parent"
+                android:layout_width="375dp"
                 android:layout_height="50dp"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/input"
+                android:drawableLeft="@drawable/baseline_key_24"
+                android:drawablePadding="10dp"
                 android:ems="10"
                 android:hint="Your New Password..."
                 android:inputType="textPassword"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:paddingVertical="5dp"
+                android:paddingLeft="10dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -88,35 +103,39 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:gravity="center_horizontal"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/F_ConfPasswordText"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="10dp"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginLeft="0dp"
                 android:text="Confirm New Password:" />
 
             <EditText
                 android:id="@+id/F_ConfPasswordInput"
-                android:layout_width="match_parent"
+                android:layout_width="375dp"
                 android:layout_height="50dp"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/input"
+                android:drawableLeft="@drawable/baseline_password_24"
+                android:drawablePadding="10dp"
                 android:ems="10"
                 android:hint="Your New Password Again..."
                 android:inputType="textPassword"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:paddingVertical="5dp"
+                android:paddingLeft="10dp"/>
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/F_ForgotButtons"
-        android:layout_width="match_parent"
+        android:layout_width="250dp"
+        android:layout_marginTop="50dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="50dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -127,13 +146,19 @@
             android:id="@+id/ForgotSubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Set New Password" />
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/rounded_button"
+            android:backgroundTint="@color/accent_500"
+            android:text="Set New Password"
+            android:textColor="@color/red"
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/RememberedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Back" />
+            android:background="@drawable/rounded_button"
+            android:text="Cancel" />
 
     </LinearLayout>
 

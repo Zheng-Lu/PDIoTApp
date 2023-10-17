@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Record Data"
+        android:textSize="25sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +53,7 @@
             <Spinner
                 android:id="@+id/sensor_type_spinner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="49dp" />
 
         </LinearLayout>
 
@@ -167,33 +168,50 @@
         app:layout_constraintTop_toBottomOf="@id/activity_ss_type_container"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/buttons_container_1">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textColor="@color/green"
+            android:text="Start recording"
+            android:id="@+id/start_recording_button"
+            android:layout_marginBottom="0dp"/>
+
+
+        <Button
+            android:id="@+id/stop_recording_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red"
+            android:layout_marginBottom="0dp"
+            android:layout_weight="1"
+            android:text="Stop recording" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="140dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:id="@+id/buttons_container_1"
+        app:layout_constraintTop_toBottomOf="@id/buttons_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/countup_container">
 
         <Button
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Start recording"
-            android:id="@+id/start_recording_button"
-            android:layout_marginBottom="10dp"/>
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Cancel recording"
             android:id="@+id/cancel_recording_button"
-            android:layout_marginBottom="10dp"/>
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            android:layout_width="179dp"
             android:layout_height="wrap_content"
-            android:text="Stop recording"
-            android:id="@+id/stop_recording_button"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:text="Cancel recording (DISCARD)" />
 
     </LinearLayout>
+
 
     <LinearLayout
         android:id="@+id/countup_container"
