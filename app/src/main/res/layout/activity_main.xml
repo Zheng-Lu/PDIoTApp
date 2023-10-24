@@ -42,7 +42,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <Button
-            android:id="@+id/prediction_button"
+            android:id="@+id/recog_button"
             android:layout_width="550px"
             android:layout_height="wrap_content"
             android:layout_marginTop="100px"
