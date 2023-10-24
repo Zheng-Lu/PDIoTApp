@@ -1,2 +1,9 @@
+<<<<<<< Updated upstream
 
 .idea/workspace.xml
+=======
+/app/build/
+/.gradle/
+.idea/misc.xml
+.idea/misc.xml
+>>>>>>> Stashed changes
