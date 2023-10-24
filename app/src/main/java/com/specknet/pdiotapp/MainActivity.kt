@@ -100,8 +100,8 @@ class MainActivity : AppCompatActivity() {
 
         recogniseButton.setOnClickListener {
             val intentr = Intent(this, RecogniseActivity::class.java)
-//            intentr.putExtra("username", intent.extras!!.getString("username"))
-//            intentr.putExtra("email", intent.extras!!.getString("email"))
+            intentr.putExtra("username", intent.extras!!.getString("username"))
+            intentr.putExtra("email", intent.extras!!.getString("email"))
             startActivity(intentr)
         }
     }
