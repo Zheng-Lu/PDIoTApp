@@ -19,7 +19,7 @@ import com.specknet.pdiotapp.bluetooth.BluetoothSpeckService
 import com.specknet.pdiotapp.bluetooth.ConnectingActivity
 import com.specknet.pdiotapp.live.LiveDataActivity
 import com.specknet.pdiotapp.onboarding.OnBoardingActivity
-import com.specknet.pdiotapp.prediction.PredictionActivity
+import com.specknet.pdiotapp.recognition.RecogniseActivity
 import com.specknet.pdiotapp.login.LoginActivity
 import com.specknet.pdiotapp.utils.Constants
 import com.specknet.pdiotapp.utils.Utils
@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var liveProcessingButton: Button
     lateinit var pairingButton: Button
     lateinit var recordButton: Button
-    lateinit var predictionButton: Button
+    lateinit var recogniseButton: Button
 
     // permissions
     lateinit var permissionAlertDialog: AlertDialog.Builder
@@ -67,8 +67,7 @@ class MainActivity : AppCompatActivity() {
         liveProcessingButton = findViewById(R.id.live_button)
         pairingButton = findViewById(R.id.ble_button)
         recordButton = findViewById(R.id.record_button)
-        predictionButton = findViewById(R.id.prediction_button)
-
+        recogniseButton = findViewById(R.id.recog_button)
         permissionAlertDialog = AlertDialog.Builder(this)
 
         setupClickListeners()
@@ -99,9 +98,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        predictionButton.setOnClickListener {
-            val intent = Intent(this, PredictionActivity::class.java)
-            startActivity(intent)
+        recogniseButton.setOnClickListener {
+            val intentr = Intent(this, RecogniseActivity::class.java)
+//            intentr.putExtra("username", intent.extras!!.getString("username"))
+//            intentr.putExtra("email", intent.extras!!.getString("email"))
+            startActivity(intentr)
         }
     }
 
