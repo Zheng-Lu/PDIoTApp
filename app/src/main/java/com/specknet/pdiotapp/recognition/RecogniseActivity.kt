@@ -93,7 +93,7 @@ class RecogniseActivity : AppCompatActivity() {
 
         thingyWindow = Array(windowSize) { FloatArray(thingyFeatureSize) }
 
-//        thingyCNN = Interpreter(loadModelFile("cnn_model_thingie.tflite"))
+        thingyCNN = Interpreter(loadModelFile("cnn_model_thingy.tflite"))
 
         recogImage = findViewById(R.id.recogImg)
 
@@ -218,17 +218,26 @@ class RecogniseActivity : AppCompatActivity() {
                 }
         }
 
-//        runOnUiThread {
-//            recogniser.text = str
-//
-//            when(str) {
-//                "Recognition Result : Sitting/Standing" -> recogImage.setImageResource(R.drawable.ic_baseline_man_24)
-//                "Recognition Result : Walking" -> recogImage.setImageResource(R.drawable.ic_baseline_directions_walk_24)
-//                "Recognition Result : Running" -> recogImage.setImageResource(R.drawable.ic_baseline_directions_run_24)
-//                "Recognition Result : Lying down" -> recogImage.setImageResource(R.drawable.ic_iying_down)
-//                else -> recogImage.setImageResource(R.drawable.ic_ellipsis)
-//            }
-//        }
+        runOnUiThread {
+            recogniser.text = str
+
+            when(str) {
+                "Recognition Result : Sitting" -> recogImage.setImageResource(R.drawable.sitting)
+                "Recognition Result : Standing" -> recogImage.setImageResource(R.drawable.ic_baseline_man_24)
+                "Recognition Result : Loading" -> recogImage.setImageResource(R.drawable.ic_ellipsis)
+                "Recognition Result : Shuffle walking" -> recogImage.setImageResource(R.drawable.ic_baseline_man_24)
+                "Recognition Result : Running" -> recogImage.setImageResource(R.drawable.ic_baseline_directions_run_24)
+                "Recognition Result : Normal walking" -> recogImage.setImageResource(R.drawable.ic_baseline_directions_walk_24)
+                "Recognition Result : Miscellaneous movements" -> recogImage.setImageResource(R.drawable.misce)
+                "Recognition Result : Lying down on right" -> recogImage.setImageResource(R.drawable.ic_iying_down)
+                "Recognition Result : Lying down on stomach" -> recogImage.setImageResource(R.drawable.ic_iying_down)
+                "Recognition Result : Lying down on left" -> recogImage.setImageResource(R.drawable.ic_iying_down)
+                "Recognition Result : Lying down back" -> recogImage.setImageResource(R.drawable.ic_iying_down)
+                "Recognition Result : Descending stairs" -> recogImage.setImageResource(R.drawable.descending_stair)
+                "Recognition Result : Ascending stairs" -> recogImage.setImageResource(R.drawable.ascending_stair)
+                else -> recogImage.setImageResource(R.drawable.ic_ellipsis)
+            }
+        }
     }
 
     /**
@@ -270,18 +279,27 @@ class RecogniseActivity : AppCompatActivity() {
                 }
             }
         }
-//        if(!useRespeck) {
-//            runOnUiThread {
-//                recogniser.text = str
-//                when(str) {
-//                    "Recognition Result : Sitting/Standing" -> recogImage.setImageResource(R.drawable.ic_baseline_man_24)
-//                    "Recognition Result : Walking" -> recogImage.setImageResource(R.drawable.ic_baseline_directions_walk_24)
-//                    "Recognition Result : Running" -> recogImage.setImageResource(R.drawable.ic_baseline_directions_run_24)
-//                    "Recognition Result : Lying down" -> recogImage.setImageResource(R.drawable.ic_iying_down)
-//                    else -> recogImage.setImageResource(R.drawable.ic_ellipsis)
-//                }
-//            }
-//        }
+        if(!useRespeck) {
+            runOnUiThread {
+                recogniser.text = str
+                when(str) {
+                    "Recognition Result : Sitting" -> recogImage.setImageResource(R.drawable.sitting)
+                    "Recognition Result : Standing" -> recogImage.setImageResource(R.drawable.ic_baseline_man_24)
+                    "Recognition Result : Loading" -> recogImage.setImageResource(R.drawable.ic_ellipsis)
+                    "Recognition Result : Shuffle walking" -> recogImage.setImageResource(R.drawable.ic_baseline_man_24)
+                    "Recognition Result : Running" -> recogImage.setImageResource(R.drawable.ic_baseline_directions_run_24)
+                    "Recognition Result : Normal walking" -> recogImage.setImageResource(R.drawable.ic_baseline_directions_walk_24)
+                    "Recognition Result : Miscellaneous movements" -> recogImage.setImageResource(R.drawable.misce)
+                    "Recognition Result : Lying down on right" -> recogImage.setImageResource(R.drawable.ic_iying_down)
+                    "Recognition Result : Lying down on stomach" -> recogImage.setImageResource(R.drawable.ic_iying_down)
+                    "Recognition Result : Lying down on left" -> recogImage.setImageResource(R.drawable.ic_iying_down)
+                    "Recognition Result : Lying down back" -> recogImage.setImageResource(R.drawable.ic_iying_down)
+                    "Recognition Result : Descending stairs" -> recogImage.setImageResource(R.drawable.descending_stair)
+                    "Recognition Result : Ascending stairs" -> recogImage.setImageResource(R.drawable.ascending_stair)
+                    else -> recogImage.setImageResource(R.drawable.ic_ellipsis)
+                }
+            }
+        }
     }
 
     /**

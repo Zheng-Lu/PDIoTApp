@@ -177,6 +177,9 @@
             android:textColor="@color/green"
             android:text="Start recording"
             android:id="@+id/start_recording_button"
+            android:background="@drawable/rounded_button"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_marginBottom="0dp"/>
 
 
@@ -187,6 +190,9 @@
             android:textColor="@color/red"
             android:layout_marginBottom="0dp"
             android:layout_weight="1"
+            android:background="@drawable/rounded_button"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:text="Stop recording" />
 
     </LinearLayout>
@@ -206,8 +212,12 @@
             android:id="@+id/cancel_recording_button"
             android:layout_width="179dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
+            android:background="@drawable/rounded_button"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:text="Cancel recording (DISCARD)" />
 
     </LinearLayout>
