@@ -24,6 +24,10 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
+            android:background="@drawable/rounded_button"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/green"
             android:text="Start Recognition" />
 
         <Button
@@ -31,6 +35,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/rounded_button"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/red"
             android:text="Stop Recognition" />
     </LinearLayout>
 
@@ -70,6 +78,9 @@
             android:layout_weight="1"
             android:textOff="Respeck Off"
             android:textOn="Respeck On"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded_button"
             tools:layout_marginBottom="10dp" />
 
         <ToggleButton
@@ -79,6 +90,10 @@
             android:layout_weight="1"
             android:textOff="Thingy Off"
             android:textOn="Thingy On"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rounded_button"
+
             tools:layout_marginBottom="10dp" />
 
     </LinearLayout>

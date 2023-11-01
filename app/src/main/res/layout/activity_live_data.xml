@@ -6,12 +6,52 @@
     android:layout_height="match_parent"
     tools:context=".live.LiveDataActivity">
 
+
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/live_data_title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/respeck_graphs">
+
+        <TextView
+            android:id="@+id/sign_up_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="40dp"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center_horizontal"
+            android:text="Live Data Preview"
+            android:textColor="#170200"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:typeface="sans"
+            app:layout_constraintBottom_toTopOf="@+id/sign_up_info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
+
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/input"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:id="@+id/respeck_graphs"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/live_data_title"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/thingy_graphs">
@@ -19,7 +59,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Respeck Live Data"/>
+            android:text="   Respeck Live Data"/>
 
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/respeck_chart"
@@ -30,6 +70,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/input"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/respeck_graphs"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -41,7 +84,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Thingy Live Data"/>
+            android:text="   Thingy Live Data"/>
 
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/thingy_chart"
