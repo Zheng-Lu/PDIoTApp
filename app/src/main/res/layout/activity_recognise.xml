@@ -16,7 +16,7 @@
 
         android:fontFamily="sans-serif-medium"
         android:gravity="center_horizontal"
-        android:text="■ Live Data Recognition"
+        android:text="■ Live Recognition"
         android:textColor="#170200"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -48,8 +48,8 @@
             android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:background="@drawable/rounded_button"
-            android:textOff="Respeck Off"
-            android:textOn="Respeck On" />
+            android:textOff="🔲 Respeck Off"
+            android:textOn="✅ Respeck On" />
 
         <ToggleButton
             android:id="@+id/ThingyRecog"
@@ -59,8 +59,8 @@
 
             android:layout_weight="1"
             android:background="@drawable/rounded_button"
-            android:textOff="Thingy Off"
-            android:textOn="Thingy On" />
+            android:textOff="🔲 Thingy Off"
+            android:textOn="✅ Thingy On" />
     </LinearLayout>
 
     <LinearLayout
@@ -86,7 +86,7 @@
 
             android:layout_marginRight="10dp"
             android:textColor="@color/green"
-            android:text="Start Recognition" />
+            android:text="Start Recog." />
 
         <Button
             android:id="@+id/stop_recognising_button"
@@ -96,7 +96,7 @@
             android:background="@drawable/rounded_button"
             android:layout_marginLeft="10dp"
             android:textColor="@color/red"
-            android:text="Stop Recognition" />
+            android:text="Stop Recog." />
     </LinearLayout>
 
     <LinearLayout

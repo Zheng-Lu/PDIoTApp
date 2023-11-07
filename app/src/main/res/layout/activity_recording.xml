@@ -191,7 +191,7 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:textColor="@color/green"
-            android:text="Start\nrecording"
+            android:text="▶️\nStart\nrecording"
             android:textStyle="bold"
             android:id="@+id/start_recording_button"
             android:background="@drawable/rounded_button"
@@ -211,12 +211,12 @@
             android:background="@drawable/rounded_button"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="Cancel\nrecording" />
+            android:text="❌➡🗑️\nCancel" />
 
         <Button
             android:id="@+id/stop_recording_button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
             android:textStyle="bold"
             android:textColor="@color/red"
             android:layout_marginTop="80dp"
@@ -225,7 +225,7 @@
             android:background="@drawable/rounded_button"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="Stop\nrecording" />
+            android:text="⏹️\nStop\nrecording" />
 
 
     </LinearLayout>
