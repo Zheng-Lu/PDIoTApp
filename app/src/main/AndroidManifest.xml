@@ -106,6 +106,14 @@
         <activity
             android:name=".login.ForgetPasswordActivity"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".logfiles.FileViewer"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".logfiles.FileOpen"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
