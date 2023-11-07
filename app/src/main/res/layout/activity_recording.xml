@@ -6,219 +6,227 @@
     android:layout_height="match_parent"
     tools:context=".RecordingActivity">
 
+
     <TextView
         android:id="@+id/title_record_respeck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Record Data"
-        android:textSize="25sp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="@dimen/activity_margin_content"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_horizontal"
+        android:text="■ Record Data"
+        android:textColor="#170200"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:typeface="sans"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/sensor_position_side_container"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        />
+        app:layout_constraintBottom_toTopOf="@id/side_container"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <!--  Sensor and activity type  -->
     <LinearLayout
-        android:id="@+id/sensor_position_side_container"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center|top"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@id/activity_ss_type_container"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/side_container"
+        app:layout_constraintEnd_toStartOf="@id/buttons_container"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title_record_respeck">
-
-        <LinearLayout
-            android:id="@+id/sensor_position_container"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="top"
-            android:orientation="vertical"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp">
-
-            <TextView
-                android:id="@+id/sensor_type_label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:paddingStart="10dp"
-                android:text="Sensor type" />
-
-            <Spinner
-                android:id="@+id/sensor_type_spinner"
-                android:layout_width="match_parent"
-                android:layout_height="49dp" />
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/activity_type_container"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="top"
-            android:orientation="vertical"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp">
-
-            <!--  Activity type  -->
-            <TextView
-                android:id="@+id/activity_type_label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:paddingStart="10dp"
-                android:text="Activity type/subtype" />
-
-            <Spinner
-                android:id="@+id/activity_type_spinner"
-                android:layout_width="match_parent"
-                android:layout_height="48dp" />
-
-            <Spinner
-                android:id="@+id/activity_subtype_spinner"
-                android:layout_width="match_parent"
-                android:layout_height="48dp" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-
-
-
-    <!-- Subject ID and notes -->
-    <LinearLayout
-        android:layout_width="0dp"
+        android:layout_marginLeft="@dimen/activity_margin_content"
+        android:layout_marginTop="30dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/activity_ss_type_container"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@+id/sensor_position_side_container"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/buttons_container">
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/title_record_respeck">
 
+        <!--  Sensor and activity type  -->
         <LinearLayout
-            android:layout_width="0dp"
+            android:id="@+id/sensor_position_side_container_1"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_weight="1"
+            android:gravity="center|top"
             android:orientation="vertical"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp">
+            app:layout_constraintEnd_toEndOf="parent">
 
-            <TextView
-                android:id="@+id/universal_subject_id_label"
+            <LinearLayout
+                android:id="@+id/sensor_position_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Subject ID (UUN)"
+                android:layout_weight="1"
                 android:layout_marginBottom="10dp"
-                android:paddingStart="10dp"/>
+                android:gravity="top"
+                android:orientation="vertical"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp">
 
-            <EditText
+                <TextView
+                    android:id="@+id/sensor_type_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:paddingStart="10dp"
+                    android:text="Sensor type" />
+
+                <Spinner
+                    android:id="@+id/sensor_type_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="49dp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/activity_type_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="s1234567"
-                android:singleLine="true"
-                android:id="@+id/universal_subject_id_input"
-                />
+                android:layout_weight="1"
+                android:gravity="top"
+                android:orientation="vertical"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                android:layout_marginBottom="10dp"
+                >
+
+                <!--  Activity type  -->
+                <TextView
+                    android:id="@+id/activity_type_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:paddingStart="10dp"
+                    android:text="Activity type/subtype" />
+
+                <Spinner
+                    android:id="@+id/activity_type_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp" />
+
+                <Spinner
+                    android:id="@+id/activity_subtype_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp" />
+            </LinearLayout>
+
         </LinearLayout>
 
+
+        <!-- Subject ID and notes -->
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="200dp"
+
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_weight="1"
             android:orientation="vertical"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp">
+            android:id="@+id/activity_ss_type_container"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
-            <TextView
-                android:id="@+id/notes_label"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Notes"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:paddingStart="10dp"/>
+                >
 
-            <EditText
+                <TextView
+                    android:id="@+id/universal_subject_id_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Subject ID (UUN)"
+                    android:layout_marginBottom="10dp"
+                    android:paddingStart="10dp"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="s1234567"
+                    android:singleLine="true"
+                    android:id="@+id/universal_subject_id_input"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Enter note"
-                android:singleLine="true"
-                android:id="@+id/notes_input"
-                />
-        </LinearLayout>
+                android:gravity="center"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
+                >
 
+                <TextView
+                    android:id="@+id/notes_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Notes"
+                    android:layout_marginBottom="10dp"
+                    android:paddingStart="10dp"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter note"
+                    android:singleLine="true"
+                    android:id="@+id/notes_input"
+                    />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_marginRight="@dimen/activity_margin_content"
+        android:orientation="vertical"
         android:gravity="center"
         android:id="@+id/buttons_container"
-        app:layout_constraintTop_toBottomOf="@id/activity_ss_type_container"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/buttons_container_1">
+        app:layout_constraintTop_toBottomOf="@+id/title_record_respeck"
+        app:layout_constraintBottom_toTopOf="@id/countup_container"
+        app:layout_constraintStart_toEndOf="@id/side_container"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <Button
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
             android:textColor="@color/green"
-            android:text="Start recording"
+            android:text="Start\nrecording"
+            android:textStyle="bold"
             android:id="@+id/start_recording_button"
             android:background="@drawable/rounded_button"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginBottom="0dp"/>
-
-
-        <Button
-            android:id="@+id/stop_recording_button"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textColor="@color/red"
-            android:layout_marginBottom="0dp"
-            android:layout_weight="1"
-            android:background="@drawable/rounded_button"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text="Stop recording" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="140dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:id="@+id/buttons_container_1"
-        app:layout_constraintTop_toBottomOf="@id/buttons_container"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/countup_container">
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
+            />
 
         <Button
             android:id="@+id/cancel_recording_button"
-            android:layout_width="179dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
             android:background="@drawable/rounded_button"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="Cancel recording (DISCARD)" />
+            android:text="Cancel\nrecording" />
+
+        <Button
+            android:id="@+id/stop_recording_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/red"
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_button"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Stop\nrecording" />
+
 
     </LinearLayout>
 
@@ -229,11 +237,13 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
+        android:layout_marginLeft="@dimen/activity_margin_content"
+        android:layout_marginRight="@dimen/activity_margin_content"
         app:layout_constraintBottom_toTopOf="@id/sensor_data"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttons_container">
+        app:layout_constraintTop_toBottomOf="@id/side_container">
 
         <TextView
             android:id="@+id/count_up_timer_text"
@@ -247,14 +257,14 @@
         android:layout_height="wrap_content"
         android:id="@+id/sensor_data"
         android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/countup_container"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:gravity="left"
         android:layout_marginTop="0dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
+        android:layout_marginLeft="@dimen/activity_margin_content"
+        android:layout_marginRight="@dimen/activity_margin_content">
 
         <LinearLayout
             android:layout_width="wrap_content"

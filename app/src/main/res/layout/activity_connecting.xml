@@ -11,10 +11,30 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent">
 
+        <TextView
+            android:id="@+id/connection_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="@dimen/activity_margin_content"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="center_horizontal"
+            android:text="■ Connect Devices"
+            android:textColor="#170200"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:typeface="sans"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/connection_container"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <LinearLayout
+            android:id="@+id/connection_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/connection_title"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:orientation="vertical">
 
@@ -28,21 +48,22 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Respeck"
-                    android:textSize="30dp"/>
+                    android:text="● Respeck"
+                    android:textColor="#170200"
+                    android:textSize="20dp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="If your phone supports NFC, tap it against the white surface of the Respeck to obtain the ID.\nYou can also find the ID on the Respeck label, or scan the Respeck QR code by pressing the Scan QR button."
-                    android:layout_marginTop="20dp"/>
+                    android:layout_marginTop="10dp"/>
 
                 <TextView
                     android:id="@+id/title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Respeck ID"
-                    android:layout_marginTop="30dp"/>
+                    android:layout_marginTop="20dp"/>
 
                 <LinearLayout
                     android:gravity="left"
@@ -63,7 +84,8 @@
                         android:id="@+id/scan_respeck"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Scan QR"/>
+                        android:background="@drawable/rounded_button"
+                        android:text="Scan QR" />
                 </LinearLayout>
 
 
@@ -102,15 +124,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Thingy"
-                    android:textSize="30dp"/>
+                    android:text="● Thingy"
+                    android:textColor="#170200"
+                    android:textSize="20dp"/>
 
                 <TextView
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="If your phone supports NFC, tap it against the top of the Thingy to obtain the ID.\nThe Thingy ID is also written on a label under the black rubber case."
-                    android:layout_marginTop="20dp"/>
+                    android:layout_marginTop="10dp"/>
 
 
 
@@ -119,7 +142,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Thingy ID"
-                    android:layout_marginTop="30dp"/>
+                    android:layout_marginTop="20dp"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -138,18 +161,33 @@
 
             </LinearLayout>
 
+
+            <View
+                android:id="@+id/divide_line"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_height="3dp"
+                android:background="@color/cardview_dark_background"
+                android:layout_marginTop="5dp"/>
+
             <TextView
+                android:layout_marginTop="5dp"
                 android:paddingLeft="30dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Try to always connect both sensors."/>
+                android:text="▲ Try to always connect both sensors."
+                android:textColor="#170200"
+                android:textStyle="bold"/>
+
 
             <LinearLayout
+                android:id="@+id/paring_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
-                android:padding="30dp">
+                android:padding="10dp">
 
 
                 <Button
@@ -157,14 +195,24 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text="Pair Sensors"/>
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text="Pair Sensors"
+                    android:textStyle="bold"
+                    android:textColor="@color/blue"
+                    android:background="@drawable/rounded_button"
+                    />
 
                 <Button
                     android:id="@+id/restart_service_button"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:text = "Restart connection"/>
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:text = "Restart connection"
+                    android:background="@drawable/rounded_button"
+                    />
 
             </LinearLayout>
 

@@ -22,7 +22,7 @@
             android:layout_marginTop="80dp"
             android:layout_marginBottom="40dp"
             android:fontFamily="sans-serif-medium"
-            android:text="Login"
+            android:text="Login (REDUCTED)"
             android:textAlignment="textEnd"
             android:textColor="#170200"
             android:textSize="30sp"

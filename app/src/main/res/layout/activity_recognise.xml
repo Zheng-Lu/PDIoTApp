@@ -10,19 +10,20 @@
         android:id="@+id/sign_up_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="@dimen/activity_margin_content"
+
         android:fontFamily="sans-serif-medium"
         android:gravity="center_horizontal"
-        android:text="Live Data Recognition"
+        android:text="■ Live Data Recognition"
         android:textColor="#170200"
         android:textSize="30sp"
         android:textStyle="bold"
         android:typeface="sans"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/RecogButtons"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
         android:id="@+id/RecogButtons"
@@ -30,6 +31,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:layout_marginBottom="10dp"
+        android:layout_marginLeft="@dimen/activity_margin_content"
+        android:layout_marginRight="@dimen/activity_margin_content"
         android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/buttons_container2"
@@ -41,7 +44,7 @@
             android:id="@+id/RespeckRecog"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
+
             android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:background="@drawable/rounded_button"
@@ -53,7 +56,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+
             android:layout_weight="1"
             android:background="@drawable/rounded_button"
             android:textOff="Thingy Off"
@@ -66,13 +69,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
+        android:layout_marginLeft="@dimen/activity_margin_content"
+        android:layout_marginRight="@dimen/activity_margin_content"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@id/RecogButtons"
-        app:layout_constraintBottom_toTopOf="@id/recog_count_up_timer_text"
+        app:layout_constraintBottom_toTopOf="@id/graphs_container"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
-
-
 
         <Button
             android:id="@+id/start_recognising_button"
@@ -80,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/rounded_button"
-            android:layout_marginLeft="10dp"
+
             android:layout_marginRight="10dp"
             android:textColor="@color/green"
             android:text="Start Recognition" />
@@ -92,23 +95,85 @@
             android:layout_weight="1"
             android:background="@drawable/rounded_button"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:textColor="@color/red"
             android:text="Stop Recognition" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="@dimen/activity_margin_content"
+        android:layout_marginRight="@dimen/activity_margin_content"
+        android:orientation="horizontal"
+        android:id="@+id/graphs_container"
+
+        app:layout_constraintTop_toBottomOf="@+id/buttons_container2"
+        app:layout_constraintBottom_toTopOf="@+id/recog_count_up_timer_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/input"
+            android:orientation="vertical"
+            android:id="@+id/respeck_graphs"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/thingy_graphs">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="   Respeck Live Data"/>
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/respeck_chart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/input"
+            android:id="@+id/thingy_graphs"
+
+            android:orientation="vertical"
+            app:layout_constraintStart_toEndOf="@id/respeck_graphs"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="   Thingy Live Data"/>
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/thingy_chart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/recog_count_up_timer_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
         android:layout_marginBottom="5dp"
         android:text="Elapsed time : "
+        app:layout_constraintTop_toBottomOf="@+id/graphs_container"
         app:layout_constraintBottom_toTopOf="@+id/recognise_text"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttons_container2" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <LinearLayout
@@ -133,65 +198,16 @@
         android:id="@+id/recogImg"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginBottom="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/recognise_text"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:srcCompat="@drawable/ic_ellipsis" />
 
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/input"
-        android:orientation="vertical"
-        android:id="@+id/respeck_graphs"
-        app:layout_constraintTop_toBottomOf="@+id/recogImg"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/thingy_graphs">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="   Respeck Live Data"/>
-
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/respeck_chart"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/input"
-        app:layout_constraintTop_toBottomOf="@+id/recogImg"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/respeck_graphs"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:id="@+id/thingy_graphs"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="   Thingy Live Data"/>
-
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/thingy_chart"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </LinearLayout>
 
 
 

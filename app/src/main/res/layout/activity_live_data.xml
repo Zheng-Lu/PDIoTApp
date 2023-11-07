@@ -27,7 +27,7 @@
             android:layout_marginBottom="40dp"
             android:fontFamily="sans-serif-medium"
             android:gravity="center_horizontal"
-            android:text="Live Data Preview"
+            android:text="Live Data Preview (REDUCTED)"
             android:textColor="#170200"
             android:textSize="30sp"
             android:textStyle="bold"

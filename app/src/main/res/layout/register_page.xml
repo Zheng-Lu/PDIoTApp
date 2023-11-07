@@ -6,15 +6,6 @@
     android:layout_height="match_parent"
     android:background="#FEF5E6">
 
-    <ImageView
-        android:id="@+id/back_btn"
-        android:layout_width="60dp"
-        android:layout_height="30dp"
-        android:paddingStart="30dp"
-        android:scaleType="fitStart"
-        app:srcCompat="@drawable/ic_baseline_arrow_back_signup_24"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="42dp" />
 
     <TextView
         android:id="@+id/sign_up_title"
