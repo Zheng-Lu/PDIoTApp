@@ -47,9 +47,9 @@ class RecogniseActivity : AppCompatActivity() {
     private val respeckFeatureSize = 6
     private val thingyFeatureSize = 9
 
-    private val windowSize = 30
-    private val stepSize = 15
-    private val nr_classes = 5
+    private val windowSize = 50
+    private val stepSize = 25
+    private val nr_classes = 12
     private lateinit var respeckWindow: Array<FloatArray>
     private lateinit var respeckCNN: Interpreter
 
@@ -89,7 +89,7 @@ class RecogniseActivity : AppCompatActivity() {
         str = "Recognition result : "
         respeckWindow = Array(windowSize) {FloatArray(respeckFeatureSize)} //{respeckWindowRow}
 
-        respeckCNN = Interpreter(loadModelFile("cnn_model_respeck.tflite"))
+        respeckCNN = Interpreter(loadModelFile("cnn_model_v1.tflite"))
 
         thingyWindow = Array(windowSize) { FloatArray(thingyFeatureSize) }
 
@@ -513,10 +513,7 @@ class RecogniseActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     * This method is to save a recording
-     * @param time
-     */
+
     private fun saveRecording(time : Long) {
         val currentTime = System.currentTimeMillis()
         var formattedDate = ""
@@ -578,11 +575,6 @@ class RecogniseActivity : AppCompatActivity() {
         }
     }
 
-    /**
-     * This method is to prepare data to be written in a file
-     * @param m
-     * @return string
-     */
     private fun mapToString(m: MutableMap<String, Long>) : String {
         var s = ""
         for(key in m.keys) {
@@ -596,9 +588,6 @@ class RecogniseActivity : AppCompatActivity() {
         return s
     }
 
-    /**
-     * This method is to destroy sensor connection
-     */
     override fun onDestroy() {
         super.onDestroy()
         unregisterReceiver(respeckLiveUpdateReceiver)
