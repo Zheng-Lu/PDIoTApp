@@ -50,12 +50,12 @@ class RecogniseActivity : AppCompatActivity() {
     private var mIsThingyRecognising = false
     private lateinit var recogniser: TextView
 
-    private val respeckFeatureSize = 6
+    private val respeckFeatureSize = 3
     private val thingyFeatureSize = 9
 
     private val windowSize = 50
     private val stepSize = 25
-    private val nr_classes = 12
+    private val nr_classes = 11
     private lateinit var respeckWindow: Array<FloatArray>
     private lateinit var respeckCNN: Interpreter
 
@@ -235,9 +235,9 @@ class RecogniseActivity : AppCompatActivity() {
             respeckWindowRow[0]=liveData.accelX
             respeckWindowRow[1]=liveData.accelY
             respeckWindowRow[2]=liveData.accelZ
-            respeckWindowRow[3]=liveData.gyro.x
-            respeckWindowRow[4]=liveData.gyro.y
-            respeckWindowRow[5]=liveData.gyro.z
+//            respeckWindowRow[3]=liveData.gyro.x
+//            respeckWindowRow[4]=liveData.gyro.y
+//            respeckWindowRow[5]=liveData.gyro.z
             if(resCounter<windowSize) {
                 respeckWindow[resCounter-1]=respeckWindowRow.copyOf()
             } else
@@ -540,14 +540,13 @@ class RecogniseActivity : AppCompatActivity() {
             1 -> DESCENDING_STAIRS.action
             2 -> LYING_DOWN_BACK.action
             3 -> LYING_DOWN_ON_LEFT.action
-            4 -> LYING_DOWN_ON_STOMACH.action
-            5 -> LYING_DOWN_ON_RIGHT.action
+            4 -> LYING_DOWN_ON_RIGHT.action
+            5 -> LYING_DOWN_ON_STOMACH.action
             6 -> MISCELLANEOUS_MOVEMENTS.action
             7 -> NORMAL_WALKING.action
             8 -> RUNNING.action
             9 -> SHUFFLE_WALKING.action
-            10 -> SITTING.action
-            11 -> STANDING.action
+            10 -> SITTING_OR_STANDING.action
             else -> LOADING.action
         }
     }
