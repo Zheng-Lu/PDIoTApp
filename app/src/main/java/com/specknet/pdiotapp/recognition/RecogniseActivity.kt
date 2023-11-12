@@ -118,7 +118,7 @@ class RecogniseActivity : AppCompatActivity() {
         str = "Recognition result : "
         respeckWindow = Array(windowSize) {FloatArray(respeckFeatureSize)} //{respeckWindowRow}
 
-        respeckCNN = Interpreter(loadModelFile("cnn_model_v1.tflite"))
+        respeckCNN = Interpreter(loadModelFile("cnn_model_v2_acc93.7.tflite"))
 
         thingyWindow = Array(windowSize) { FloatArray(thingyFeatureSize) }
 
@@ -261,8 +261,8 @@ class RecogniseActivity : AppCompatActivity() {
             recogniser.text = str
 
             when(str) {
-                "Recognition Result : Sitting" -> recogImage.setImageResource(R.drawable.sitting)
-                "Recognition Result : Standing" -> recogImage.setImageResource(R.drawable.ic_baseline_man_24)
+//                "Recognition Result : Sitting" -> recogImage.setImageResource(R.drawable.sitting)
+                "Recognition Result : Sitting/Standing" -> recogImage.setImageResource(R.drawable.ic_baseline_man_24)
                 "Recognition Result : Loading" -> recogImage.setImageResource(R.drawable.ic_ellipsis)
                 "Recognition Result : Shuffle walking" -> recogImage.setImageResource(R.drawable.ic_baseline_man_24)
                 "Recognition Result : Running" -> recogImage.setImageResource(R.drawable.ic_baseline_directions_run_24)
@@ -322,8 +322,8 @@ class RecogniseActivity : AppCompatActivity() {
             runOnUiThread {
                 recogniser.text = str
                 when(str) {
-                    "Recognition Result : Sitting" -> recogImage.setImageResource(R.drawable.sitting)
-                    "Recognition Result : Standing" -> recogImage.setImageResource(R.drawable.ic_baseline_man_24)
+//                    "Recognition Result : Sitting" -> recogImage.setImageResource(R.drawable.sitting)
+                    "Recognition Result : Sitting/Standing" -> recogImage.setImageResource(R.drawable.ic_baseline_man_24)
                     "Recognition Result : Loading" -> recogImage.setImageResource(R.drawable.ic_ellipsis)
                     "Recognition Result : Shuffle walking" -> recogImage.setImageResource(R.drawable.ic_baseline_man_24)
                     "Recognition Result : Running" -> recogImage.setImageResource(R.drawable.ic_baseline_directions_run_24)
