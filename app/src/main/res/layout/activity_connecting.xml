@@ -20,7 +20,7 @@
             android:layout_marginLeft="@dimen/activity_margin_content"
             android:fontFamily="sans-serif-medium"
             android:gravity="center_horizontal"
-            android:text="■ Connect Devices"
+            android:text="■ Pair Sensors"
             android:textColor="#170200"
             android:textSize="30sp"
             android:textStyle="bold"

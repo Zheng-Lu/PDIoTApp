@@ -22,19 +22,93 @@
         android:textStyle="bold"
         android:typeface="sans"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/RecogButtons"
+        app:layout_constraintBottom_toTopOf="@+id/graphs_container"
         app:layout_constraintStart_toStartOf="parent" />
+
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="220dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="@dimen/activity_margin_content"
+        android:layout_marginRight="@dimen/activity_margin_content"
+        android:orientation="vertical"
+        android:id="@+id/graphs_container"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_title"
+        app:layout_constraintBottom_toTopOf="@+id/RecogButtons"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/respeck_graphs"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/thingy_graphs">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="   Respeck Live Data"/>
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/respeck_chart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+
+            android:id="@+id/thingy_graphs"
+
+            android:orientation="vertical"
+            app:layout_constraintStart_toEndOf="@id/respeck_graphs"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="   Thingy Live Data"/>
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/thingy_chart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <View
+        android:id="@+id/divide_line"
+        app:layout_constraintTop_toBottomOf="@+id/graphs_container"
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_height="3dp"
+        android:background="@color/cardview_dark_background" />
+
 
     <LinearLayout
         android:id="@+id/RecogButtons"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="@dimen/activity_margin_content"
         android:layout_marginRight="@dimen/activity_margin_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/graphs_container"
         app:layout_constraintBottom_toTopOf="@id/buttons_container2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -67,13 +141,13 @@
         android:id="@+id/buttons_container2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="@dimen/activity_margin_content"
         android:layout_marginRight="@dimen/activity_margin_content"
         android:orientation="horizontal"
         app:layout_constraintTop_toBottomOf="@id/RecogButtons"
-        app:layout_constraintBottom_toTopOf="@id/graphs_container"
+        app:layout_constraintBottom_toTopOf="@id/recog_count_up_timer_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -99,69 +173,6 @@
             android:text="Stop Recog." />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="@dimen/activity_margin_content"
-        android:layout_marginRight="@dimen/activity_margin_content"
-        android:orientation="horizontal"
-        android:id="@+id/graphs_container"
-
-        app:layout_constraintTop_toBottomOf="@+id/buttons_container2"
-        app:layout_constraintBottom_toTopOf="@+id/recog_count_up_timer_text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/input"
-            android:orientation="vertical"
-            android:id="@+id/respeck_graphs"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/thingy_graphs">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="   Respeck Live Data"/>
-
-            <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/respeck_chart"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/input"
-            android:id="@+id/thingy_graphs"
-
-            android:orientation="vertical"
-            app:layout_constraintStart_toEndOf="@id/respeck_graphs"
-            app:layout_constraintEnd_toEndOf="parent">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="   Thingy Live Data"/>
-
-            <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/thingy_chart"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-
-        </LinearLayout>
-    </LinearLayout>
 
     <TextView
         android:id="@+id/recog_count_up_timer_text"
@@ -190,7 +201,10 @@
             android:id="@+id/recogniser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Recognition Result :  " />
+            android:text="Recognition Result :  "
+            android:textSize="18dp"
+            android:textColor="#170200"
+            />
     </LinearLayout>
 
 
