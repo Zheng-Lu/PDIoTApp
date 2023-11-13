@@ -11,7 +11,6 @@ enum class Action(val action: String) {
     NORMAL_WALKING("Normal walking"),
     RUNNING("Running"),
     SHUFFLE_WALKING("Shuffle walking"),
-    SITTING("Sitting"),
-    STANDING("Standing"),
+    SITTING_OR_STANDING("Sitting/Standing"),
     LOADING("Loading")
 }
