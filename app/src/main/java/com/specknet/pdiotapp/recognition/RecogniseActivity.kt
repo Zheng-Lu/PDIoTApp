@@ -29,6 +29,8 @@ import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 
+data class ActivityRecord(val activityName: String, val timestamp: Long)
+
 class RecogniseActivity : AppCompatActivity() {
 
     private val TAG = "RecognisingActivity"
@@ -81,6 +83,7 @@ class RecogniseActivity : AppCompatActivity() {
     private var initialTime: Long = 0
     private lateinit var user_name : String
     private lateinit var activity_map: MutableMap<String, Long>
+    private lateinit var activityList: List<ActivityRecord>
 
     private val filterTestRespeck = IntentFilter(Constants.ACTION_RESPECK_LIVE_BROADCAST)
     private val filterTestThingy = IntentFilter(Constants.ACTION_THINGY_BROADCAST)
@@ -104,9 +107,6 @@ class RecogniseActivity : AppCompatActivity() {
     lateinit var thingyChart: LineChart
 
 
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recognise)
@@ -118,7 +118,7 @@ class RecogniseActivity : AppCompatActivity() {
         str = "Recognition result : "
         respeckWindow = Array(windowSize) {FloatArray(respeckFeatureSize)} //{respeckWindowRow}
 
-        respeckCNN = Interpreter(loadModelFile("cnn_model_v2_acc93.7.tflite"))
+        respeckCNN = Interpreter(loadModelFile("cnn_model_v3_acc95.tflite"))
 
         thingyWindow = Array(windowSize) { FloatArray(thingyFeatureSize) }
 
@@ -551,8 +551,7 @@ class RecogniseActivity : AppCompatActivity() {
         }
     }
 
-
-    private fun saveRecording(time : Long) {
+    private fun saveRecording(time: Long) {
         val currentTime = System.currentTimeMillis()
         var formattedDate = ""
         try {
@@ -563,7 +562,7 @@ class RecogniseActivity : AppCompatActivity() {
             formattedDate = currentTime.toString()
         }
 
-        val filename = "Recording_${formattedDate}.txt" // TODO format this to human readable
+        val filename = "Recording_${formattedDate}.csv" // Changed to .csv
 
         val email = intent.extras!!.getString("email").toString()
         val hfile = File(getExternalFilesDir(null)!!.absolutePath + "/" + email)
@@ -573,47 +572,109 @@ class RecogniseActivity : AppCompatActivity() {
 
         val dataWriter: BufferedWriter
 
-        // Create file for current day and append header, if it doesn't exist yet
         try {
             val exists = file.exists()
             dataWriter = BufferedWriter(OutputStreamWriter(FileOutputStream(file, true)))
 
             if (!exists) {
                 Log.d(TAG, "saveRecording: filename doesn't exist")
-                // the header columns in here
+                // Write metadata as header
                 formattedDate = SimpleDateFormat("dd.MM.yyyy 'at' HH:mm:ss", Locale.UK).format(Date())
-                var sensorsUsed = "# Sensors used: "
-                if(useRespeck&&useThingy) sensorsUsed += "Respeck, Thingy\n"
-                else if(useRespeck) sensorsUsed +="Respeck\n"
-                else if(useThingy) sensorsUsed +="Thingy\n"
-                dataWriter.write("# Name: $user_name\n")
-                dataWriter.write("# Date: $formattedDate\n")
-                dataWriter.write(sensorsUsed)
+                var sensorsUsed = "Sensors used: "
+                if (useRespeck && useThingy) sensorsUsed += "Respeck, Thingy"
+                else if (useRespeck) sensorsUsed += "Respeck"
+                else if (useThingy) sensorsUsed += "Thingy"
                 val formatter = SimpleDateFormat("HH:mm:ss", Locale.UK)
                 formatter.timeZone = TimeZone.getTimeZone("GMT")
-                dataWriter.write("# Duration: ${formatter.format(Date(time))}.\n")
+                dataWriter.write("# Name: $user_name\n")
+                dataWriter.write("# Date: $formattedDate\n")
+                dataWriter.write("# $sensorsUsed\n")
+                dataWriter.write("# Duration: ${formatter.format(Date(time))}\n")
                 dataWriter.newLine()
+                // CSV header for activities
+                dataWriter.write("Activity,Duration\n")
                 dataWriter.flush()
-            }
-            else {
+            } else {
                 Log.d(TAG, "saveRecording: filename exists")
             }
-            dataWriter.write("# Recorded activities:\n")
-            dataWriter.write(mapToString(activity_map))
+
+            // Write activities in CSV format
+            dataWriter.write(mapToCsvString(activity_map))
             dataWriter.flush()
             dataWriter.close()
 
             activity_map.clear()
             Toast.makeText(this, "Recording saved!", Toast.LENGTH_SHORT).show()
 
-        }
-        catch (e: IOException) {
+        } catch (e: IOException) {
             Toast.makeText(this, "Error while saving recording!", Toast.LENGTH_SHORT).show()
-            Log.e(TAG, "saveRespeckRecording: Error while writing to the respeck file: " + e.message )
+            Log.e(TAG, "saveRespeckRecording: Error while writing to the respeck file: " + e.message)
         }
     }
 
 
+    // Old code for recording in str format
+//    private fun saveRecording(time : Long) {
+//        val currentTime = System.currentTimeMillis()
+//        var formattedDate = ""
+//        try {
+//            formattedDate = SimpleDateFormat("dd-MM-yyyy_HH-mm-ss", Locale.UK).format(Date())
+//            Log.i(TAG, "saveRecording: formattedDate = $formattedDate")
+//        } catch (e: Exception) {
+//            Log.i(TAG, "saveRecording: error = $e")
+//            formattedDate = currentTime.toString()
+//        }
+//
+//        val filename = "Recording_${formattedDate}.txt" // TODO format this to human readable
+//
+//        val email = intent.extras!!.getString("email").toString()
+//        val hfile = File(getExternalFilesDir(null)!!.absolutePath + "/" + email)
+//        val file = File(hfile, filename)
+//
+//        Log.d(TAG, "saveRecording: filename = $filename")
+//
+//        val dataWriter: BufferedWriter
+//
+//        // Create file for current day and append header, if it doesn't exist yet
+//        try {
+//            val exists = file.exists()
+//            dataWriter = BufferedWriter(OutputStreamWriter(FileOutputStream(file, true)))
+//
+//            if (!exists) {
+//                Log.d(TAG, "saveRecording: filename doesn't exist")
+//                // the header columns in here
+//                formattedDate = SimpleDateFormat("dd.MM.yyyy 'at' HH:mm:ss", Locale.UK).format(Date())
+//                var sensorsUsed = "# Sensors used: "
+//                if(useRespeck&&useThingy) sensorsUsed += "Respeck, Thingy\n"
+//                else if(useRespeck) sensorsUsed +="Respeck\n"
+//                else if(useThingy) sensorsUsed +="Thingy\n"
+//                dataWriter.write("# Name: $user_name\n")
+//                dataWriter.write("# Date: $formattedDate\n")
+//                dataWriter.write(sensorsUsed)
+//
+//                val formatter = SimpleDateFormat("HH:mm:ss", Locale.UK)
+//                formatter.timeZone = TimeZone.getTimeZone("GMT")
+//                dataWriter.write("# Duration: ${formatter.format(Date(time))}.\n")
+//                dataWriter.newLine()
+//                dataWriter.flush()
+//            }
+//            else {
+//                Log.d(TAG, "saveRecording: filename exists")
+//            }
+//            dataWriter.write("# Recorded activities:\n")
+//            dataWriter.write(mapToCsvString(activity_map))
+//            dataWriter.flush()
+//            dataWriter.close()
+//
+//            activity_map.clear()
+//            Toast.makeText(this, "Recording saved!", Toast.LENGTH_SHORT).show()
+//
+//        }
+//        catch (e: IOException) {
+//            Toast.makeText(this, "Error while saving recording!", Toast.LENGTH_SHORT).show()
+//            Log.e(TAG, "saveRespeckRecording: Error while writing to the respeck file: " + e.message )
+//        }
+//    }
 
 
     fun setupCharts() {
@@ -739,18 +800,34 @@ class RecogniseActivity : AppCompatActivity() {
 
     }
 
-    private fun mapToString(m: MutableMap<String, Long>) : String {
-        var s = ""
-        for(key in m.keys) {
+    // Old code for recording in str format
+//    private fun mapToString(m: MutableMap<String, Long>) : String {
+//        var s = ""
+//        for(key in m.keys) {
+//            val k = key.split(":")[1]
+//            val formatter = SimpleDateFormat("HH:mm:ss", Locale.UK)
+//            formatter.timeZone = TimeZone.getTimeZone("GMT")
+//            val v = formatter.format(Date(m[key]!!))
+//            if(v!="00:00:00")
+//                s += "##$k : $v\n"
+//        }
+//        return s
+//    }
+
+    private fun mapToCsvString(m: MutableMap<String, Long>): String {
+        val stringBuilder = StringBuilder()
+        for (key in m.keys) {
             val k = key.split(":")[1]
             val formatter = SimpleDateFormat("HH:mm:ss", Locale.UK)
             formatter.timeZone = TimeZone.getTimeZone("GMT")
             val v = formatter.format(Date(m[key]!!))
-            if(v!="00:00:00")
-                s += "##$k : $v\n"
+            if (v != "00:00:00") {
+                stringBuilder.append("$k,$v\n") // Format as CSV row
+            }
         }
-        return s
+        return stringBuilder.toString()
     }
+
 
     override fun onDestroy() {
         super.onDestroy()
