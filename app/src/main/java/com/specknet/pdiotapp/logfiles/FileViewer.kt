@@ -16,6 +16,9 @@ class FileViewer : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.show_files)
+        // hiding the action bar
+        supportActionBar!!.hide()
+
         initRecyclerView()
         addData()
     }

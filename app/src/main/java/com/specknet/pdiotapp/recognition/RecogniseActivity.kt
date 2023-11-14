@@ -111,6 +111,9 @@ class RecogniseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recognise)
 
+        // hiding the action bar
+        supportActionBar!!.hide()
+
         setupViews()
         setupButtons()
         setupCharts()

@@ -71,6 +71,9 @@ class RecordingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recording)
 
+        // hiding the action bar
+        supportActionBar!!.hide()
+
         respeckOutputData = StringBuilder()
         thingyOutputData = StringBuilder()
 

@@ -32,6 +32,9 @@ class BarcodeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_barcode)
 
+        // hiding the action bar
+        supportActionBar!!.hide()
+
         if(ContextCompat.checkSelfPermission(
                 this@BarcodeActivity,
                 Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED

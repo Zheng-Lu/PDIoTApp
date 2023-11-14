@@ -53,6 +53,10 @@ class ConnectingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_connecting)
 
+        // hiding the action bar
+        supportActionBar!!.hide()
+
+
         // scan respeck
         scanRespeckButton = findViewById(R.id.scan_respeck)
         respeckID = findViewById(R.id.respeck_code)

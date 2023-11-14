@@ -25,7 +25,7 @@
         android:layout_marginLeft="@dimen/activity_margin_content"
         android:fontFamily="sans-serif-medium"
         android:gravity="center_horizontal"
-        android:text="■ Record Data"
+        android:text="■ Raw Data Record"
         android:textColor="#170200"
         android:textSize="30sp"
         android:textStyle="bold"
