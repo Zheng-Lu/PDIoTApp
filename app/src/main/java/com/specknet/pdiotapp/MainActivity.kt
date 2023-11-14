@@ -12,6 +12,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
 import com.google.android.material.snackbar.Snackbar
@@ -28,8 +29,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    // buttons and textviews
-    lateinit var liveProcessingButton: Button
     lateinit var pairingButton: Button
     lateinit var recordButton: Button
     lateinit var recogniseButton: Button
@@ -66,7 +65,6 @@ class MainActivity : AppCompatActivity() {
             startActivity(introIntent)
         }
 
-        liveProcessingButton = findViewById(R.id.live_button)
         pairingButton = findViewById(R.id.ble_button)
         recordButton = findViewById(R.id.record_button)
         recogniseButton = findViewById(R.id.recog_button)
@@ -83,13 +81,13 @@ class MainActivity : AppCompatActivity() {
         filter.addAction(Constants.ACTION_RESPECK_CONNECTED)
         filter.addAction(Constants.ACTION_RESPECK_DISCONNECTED)
 
+        val username = intent.getStringExtra("username") ?: ":)"
+        val usernameTextView = findViewById<TextView>(R.id.textView2)
+        usernameTextView.text = "Welcome, $username!"
+
     }
 
     fun setupClickListeners() {
-        liveProcessingButton.setOnClickListener {
-            val intent = Intent(this, LiveDataActivity::class.java)
-            startActivity(intent)
-        }
 
         pairingButton.setOnClickListener {
             val intent = Intent(this, ConnectingActivity::class.java)

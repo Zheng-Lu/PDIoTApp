@@ -7,6 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".logfiles.FileViewer">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/chikinbun14393512_blur"
+        android:scaleType="centerCrop"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#AAFFFFFF" />
+
     <TextView
         android:id="@+id/history_view_title"
         android:layout_width="wrap_content"

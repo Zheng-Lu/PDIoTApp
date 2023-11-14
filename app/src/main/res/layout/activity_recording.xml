@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".RecordingActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/chikinbun14393512_blur"
+        android:scaleType="centerCrop"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#AAFFFFFF" />
 
     <TextView
         android:id="@+id/title_record_respeck"

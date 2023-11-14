@@ -143,7 +143,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             */
 
             //databaseHelper.updateUserSesh(user, true)
-            val accountsIntent = Intent(activity, MainActivity::class.java)
+            val accountsIntent = Intent(this, MainActivity::class.java)
             accountsIntent.putExtra("username", name)
             accountsIntent.putExtra("email", email)
             emptyInputEditText()
