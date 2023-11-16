@@ -121,7 +121,7 @@ class RecogniseActivity : AppCompatActivity() {
         str = "Recognition result : "
         respeckWindow = Array(windowSize) {FloatArray(respeckFeatureSize)} //{respeckWindowRow}
 
-        respeckCNN = Interpreter(loadModelFile("cnn_model_v3_acc95.tflite"))
+        respeckCNN = Interpreter(loadModelFile("Task1_cnn_model_v3_acc95.tflite"))
 
         thingyWindow = Array(windowSize) { FloatArray(thingyFeatureSize) }
 
