@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/coordinatorLayout"
-    android:background="@drawable/chikinbun14393512"
+    android:background="@drawable/grey_background1"
     tools:context=".MainActivity">
 
 

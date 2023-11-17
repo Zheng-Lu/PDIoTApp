@@ -29,11 +29,11 @@ import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 
-data class ActivityRecord(val activityName: String, val timestamp: Long)
+data class Task3ActivityRecord(val activityName: String, val timestamp: Long)
 
-class RecogniseActivity : AppCompatActivity() {
+class Task3RecogniseActivity : AppCompatActivity() {
 
-    private val TAG = "RecognisingActivity"
+    private val TAG = "Task3RecognisingActivity"
 
     private lateinit var startRecognisingButton: Button
     private lateinit var stopRecognisingButton: Button
@@ -57,7 +57,7 @@ class RecogniseActivity : AppCompatActivity() {
 
     private val windowSize = 50
     private val stepSize = 25
-    private val nr_classes = 11
+    private val nr_classes = 20
     private lateinit var respeckWindow: Array<FloatArray>
     private lateinit var respeckCNN: Interpreter
 
@@ -121,7 +121,7 @@ class RecogniseActivity : AppCompatActivity() {
         str = "Recognition result : "
         respeckWindow = Array(windowSize) {FloatArray(respeckFeatureSize)} //{respeckWindowRow}
 
-        respeckCNN = Interpreter(loadModelFile("Task1_cnn_model_v3_acc95.tflite"))
+        respeckCNN = Interpreter(loadModelFile("Task3_cnn_model_v1_acc70.tflite"))
 
         thingyWindow = Array(windowSize) { FloatArray(thingyFeatureSize) }
 
@@ -325,19 +325,26 @@ class RecogniseActivity : AppCompatActivity() {
             runOnUiThread {
                 recogniser.text = str
                 when(str) {
-//                    "Recognition Result : Sitting" -> recogImage.setImageResource(R.drawable.sitting)
                     "Recognition Result : Sitting/Standing" -> recogImage.setImageResource(R.drawable.ic_baseline_man_24)
-                    "Recognition Result : Loading" -> recogImage.setImageResource(R.drawable.ic_ellipsis)
-                    "Recognition Result : Shuffle walking" -> recogImage.setImageResource(R.drawable.ic_baseline_man_24)
-                    "Recognition Result : Running" -> recogImage.setImageResource(R.drawable.ic_baseline_directions_run_24)
-                    "Recognition Result : Normal walking" -> recogImage.setImageResource(R.drawable.ic_baseline_directions_walk_24)
-                    "Recognition Result : Miscellaneous movements" -> recogImage.setImageResource(R.drawable.misce)
+                    "Recognition Result : Sitting/Standing Coughing" -> recogImage.setImageResource(R.drawable.ic_baseline_man_24)
+                    "Recognition Result : Sitting/Standing Hyperventilating" -> recogImage.setImageResource(R.drawable.ic_baseline_man_24)
+                    "Recognition Result : Sitting/Standing Other" -> recogImage.setImageResource(R.drawable.ic_baseline_man_24)
                     "Recognition Result : Lying down on right" -> recogImage.setImageResource(R.drawable.ic_iying_down)
+                    "Recognition Result : Lying down on right Coughing" -> recogImage.setImageResource(R.drawable.ic_iying_down)
+                    "Recognition Result : Lying down on right Hyperventilating" -> recogImage.setImageResource(R.drawable.ic_iying_down)
+                    "Recognition Result : Lying down on right Other" -> recogImage.setImageResource(R.drawable.ic_iying_down)
                     "Recognition Result : Lying down on stomach" -> recogImage.setImageResource(R.drawable.ic_iying_down)
+                    "Recognition Result : Lying down on stomach Coughing" -> recogImage.setImageResource(R.drawable.ic_iying_down)
+                    "Recognition Result : Lying down on stomach Hyperventilating" -> recogImage.setImageResource(R.drawable.ic_iying_down)
+                    "Recognition Result : Lying down on stomach Other" -> recogImage.setImageResource(R.drawable.ic_iying_down)
                     "Recognition Result : Lying down on left" -> recogImage.setImageResource(R.drawable.ic_iying_down)
+                    "Recognition Result : Lying down on left Coughing" -> recogImage.setImageResource(R.drawable.ic_iying_down)
+                    "Recognition Result : Lying down on left Hyperventilating" -> recogImage.setImageResource(R.drawable.ic_iying_down)
+                    "Recognition Result : Lying down on left Other" -> recogImage.setImageResource(R.drawable.ic_iying_down)
                     "Recognition Result : Lying down back" -> recogImage.setImageResource(R.drawable.ic_iying_down)
-                    "Recognition Result : Descending stairs" -> recogImage.setImageResource(R.drawable.descending_stair)
-                    "Recognition Result : Ascending stairs" -> recogImage.setImageResource(R.drawable.ascending_stair)
+                    "Recognition Result : Lying down back Coughing" -> recogImage.setImageResource(R.drawable.ic_iying_down)
+                    "Recognition Result : Lying down back Hyperventilating" -> recogImage.setImageResource(R.drawable.ic_iying_down)
+                    "Recognition Result : Lying down back Other" -> recogImage.setImageResource(R.drawable.ic_iying_down)
                     else -> recogImage.setImageResource(R.drawable.ic_ellipsis)
                 }
             }
@@ -539,17 +546,26 @@ class RecogniseActivity : AppCompatActivity() {
      */
     private fun mapOutputtoLabel(i: Int) : String {
         return when (i) {
-            0 -> ASCENDING_STAIRS.action
-            1 -> DESCENDING_STAIRS.action
-            2 -> LYING_DOWN_BACK.action
-            3 -> LYING_DOWN_ON_LEFT.action
-            4 -> LYING_DOWN_ON_RIGHT.action
-            5 -> LYING_DOWN_ON_STOMACH.action
-            6 -> MISCELLANEOUS_MOVEMENTS.action
-            7 -> NORMAL_WALKING.action
-            8 -> RUNNING.action
-            9 -> SHUFFLE_WALKING.action
-            10 -> SITTING_OR_STANDING.action
+            0 -> LYING_DOWN_BACK.action
+            1 -> LYING_DOWN_BACK_COUGHING.action
+            2 -> LYING_DOWN_BACK_HYPERVENTILATING.action
+            3 -> LYING_DOWN_BACK_OTHER.action
+            4 -> LYING_DOWN_ON_LEFT.action
+            5 -> LYING_DOWN_ON_LEFT_COUGHING.action
+            6 -> LYING_DOWN_ON_LEFT_HYPERVENTILATING.action
+            7 -> LYING_DOWN_ON_LEFT_OTHER.action
+            8 -> LYING_DOWN_ON_RIGHT.action
+            9 -> LYING_DOWN_ON_RIGHT_COUGHING.action
+            10 -> LYING_DOWN_ON_RIGHT_HYPERVENTILATING.action
+            11 -> LYING_DOWN_ON_RIGHT_OTHER.action
+            12 -> LYING_DOWN_ON_STOMACH.action
+            13 -> LYING_DOWN_ON_STOMACH_COUGHING.action
+            14 -> LYING_DOWN_ON_STOMACH_HYPERVENTILATING.action
+            15 -> LYING_DOWN_ON_STOMACH_OTHER.action
+            16 -> SITTING_OR_STANDING.action
+            17 -> SITTING_OR_STANDING_COUGHING.action
+            18 -> SITTING_OR_STANDING_HYPERVENTILATING.action
+            19 -> SITTING_OR_STANDING_OTHER.action
             else -> LOADING.action
         }
     }
@@ -803,6 +819,19 @@ class RecogniseActivity : AppCompatActivity() {
 
     }
 
+    // Old code for recording in str format
+//    private fun mapToString(m: MutableMap<String, Long>) : String {
+//        var s = ""
+//        for(key in m.keys) {
+//            val k = key.split(":")[1]
+//            val formatter = SimpleDateFormat("HH:mm:ss", Locale.UK)
+//            formatter.timeZone = TimeZone.getTimeZone("GMT")
+//            val v = formatter.format(Date(m[key]!!))
+//            if(v!="00:00:00")
+//                s += "##$k : $v\n"
+//        }
+//        return s
+//    }
 
     private fun mapToCsvString(m: MutableMap<String, Long>): String {
         val stringBuilder = StringBuilder()

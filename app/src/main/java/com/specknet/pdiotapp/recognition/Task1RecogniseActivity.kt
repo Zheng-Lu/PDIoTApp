@@ -29,11 +29,11 @@ import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 
-data class ActivityRecord(val activityName: String, val timestamp: Long)
+data class Task1ActivityRecord(val activityName: String, val timestamp: Long)
 
-class RecogniseActivity : AppCompatActivity() {
+class Task1RecogniseActivity : AppCompatActivity() {
 
-    private val TAG = "RecognisingActivity"
+    private val TAG = "Task1RecognisingActivity"
 
     private lateinit var startRecognisingButton: Button
     private lateinit var stopRecognisingButton: Button
@@ -803,6 +803,19 @@ class RecogniseActivity : AppCompatActivity() {
 
     }
 
+    // Old code for recording in str format
+//    private fun mapToString(m: MutableMap<String, Long>) : String {
+//        var s = ""
+//        for(key in m.keys) {
+//            val k = key.split(":")[1]
+//            val formatter = SimpleDateFormat("HH:mm:ss", Locale.UK)
+//            formatter.timeZone = TimeZone.getTimeZone("GMT")
+//            val v = formatter.format(Date(m[key]!!))
+//            if(v!="00:00:00")
+//                s += "##$k : $v\n"
+//        }
+//        return s
+//    }
 
     private fun mapToCsvString(m: MutableMap<String, Long>): String {
         val stringBuilder = StringBuilder()

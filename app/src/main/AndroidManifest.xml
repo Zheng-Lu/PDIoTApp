@@ -77,7 +77,7 @@
             android:name=".RecordingActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".recognition.RecogniseActivity"
+            android:name=".recognition.Task3RecogniseActivity"
             android:screenOrientation="portrait" />
 
         <activity
