@@ -22,7 +22,7 @@ import com.specknet.pdiotapp.live.LiveDataActivity
 import com.specknet.pdiotapp.onboarding.OnBoardingActivity
 import com.specknet.pdiotapp.login.LoginActivity
 import com.specknet.pdiotapp.logfiles.FileViewer
-import com.specknet.pdiotapp.recognition.MixRecogniseActivity
+import com.specknet.pdiotapp.recognition.RecogniseActivity
 import com.specknet.pdiotapp.recognition.Task1RecogniseActivity
 import com.specknet.pdiotapp.recognition.Task2RecogniseActivity
 import com.specknet.pdiotapp.recognition.Task3RecogniseActivity
@@ -103,7 +103,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         recogniseButton.setOnClickListener {
-            val intentr = Intent(this, MixRecogniseActivity::class.java)
+            val intentr = Intent(this, RecogniseActivity::class.java)
             intentr.putExtra("username", intent.extras!!.getString("username"))
             intentr.putExtra("email", intent.extras!!.getString("email"))
             startActivity(intentr)
