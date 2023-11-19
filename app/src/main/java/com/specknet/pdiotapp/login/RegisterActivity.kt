@@ -155,8 +155,7 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
             // Snack Bar to show success message that record saved successfully
             Toast.makeText(this, "Registration successful. Please go back to login page", Toast.LENGTH_SHORT).show()
             emptyInputEditText()
-
-
+            disableView(appCompatButtonRegister)
         } else {
             // Snack Bar to show error message that record already exists
             Toast.makeText(this, "Email address already signed up", Toast.LENGTH_SHORT).show()
@@ -164,6 +163,14 @@ class RegisterActivity : AppCompatActivity(), View.OnClickListener {
 
 
     }
+
+
+
+    private fun disableView(view: View) {
+        view.isClickable = false
+        view.isEnabled = false
+    }
+
 
     /**
      * This method is to empty all input edit text

@@ -16,9 +16,9 @@
         android:id="@+id/sign_up_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="5dp"
+        android:layout_marginStart="24dp"
         android:fontFamily="sans-serif-medium"
         android:gravity="center_horizontal"
         android:text="■ Live Recognition"
@@ -33,7 +33,7 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="220dp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="@dimen/activity_margin_content"
         android:layout_marginRight="@dimen/activity_margin_content"
         android:orientation="vertical"
@@ -124,7 +124,7 @@
 
             android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/input"
             android:textOff="🔲 Respeck Off"
             android:textOn="✅ Respeck On" />
 
@@ -135,7 +135,7 @@
             android:layout_marginLeft="10dp"
 
             android:layout_weight="1"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/input"
             android:textOff="🔲 Thingy Off"
             android:textOn="✅ Thingy On" />
     </LinearLayout>
@@ -159,8 +159,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/rounded_button"
-
+            android:background="@drawable/input"
             android:layout_marginRight="10dp"
             android:textColor="@color/green"
             android:text="Start Recog." />
@@ -170,7 +169,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/input"
             android:layout_marginLeft="10dp"
             android:textColor="@color/red"
             android:text="Stop Recog." />
@@ -197,7 +196,7 @@
         android:layout_marginBottom="5dp"
         android:text="Elapsed time : "
         app:layout_constraintTop_toBottomOf="@+id/hint"
-        app:layout_constraintBottom_toTopOf="@+id/recognise_text"
+        app:layout_constraintBottom_toTopOf="@+id/recogImg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -207,17 +206,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:layout_marginBottom="20dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/recog_count_up_timer_text">
+        app:layout_constraintTop_toBottomOf="@id/recogImg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        >
 
         <TextView
             android:id="@+id/recogniser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Recognition Result :  "
-            android:textSize="14dp"
+            android:textSize="20dp"
             android:textColor="#170200"
             />
     </LinearLayout>
@@ -231,8 +233,8 @@
         android:layout_marginBottom="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recognise_text"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recog_count_up_timer_text"
+        app:layout_constraintBottom_toTopOf="@+id/recognise_text"
         app:srcCompat="@drawable/ic_ellipsis" />
 
 

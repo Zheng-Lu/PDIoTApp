@@ -100,10 +100,14 @@
 
                     <Button
                         android:id="@+id/scan_respeck"
+                        android:layout_marginLeft="10dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/rounded_button"
-                        android:text="Scan QR" />
+                        android:background="@drawable/input"
+                        android:drawableLeft="@drawable/baseline_qr_code_scanner_24"
+                        android:paddingLeft="8dp"
+                        android:text="Scan"
+                        />
                 </LinearLayout>
 
 
@@ -225,7 +229,7 @@
                     android:text="Pair Sensors"
                     android:textStyle="bold"
                     android:textColor="@color/blue"
-                    android:background="@drawable/rounded_button"
+                    android:background="@drawable/input"
                     />
 
                 <Button
@@ -236,7 +240,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:text = "Reboot service"
-                    android:background="@drawable/rounded_button"
+                    android:background="@drawable/input"
                     />
 
             </LinearLayout>

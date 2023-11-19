@@ -3,30 +3,46 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@drawable/grey_background1"
     tools:context="login.LoginActivity">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/pdiot_icon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/Login"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+    />
+
 
     <TextView
         android:id="@+id/Login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="5dp"
         android:layout_marginBottom="30dp"
-        android:text="WELCOME"
+        android:text="WELCOME!"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textStyle="bold"
         android:textSize="30sp"
+        android:textColor="#FFFFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/L_UserInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/icon" />
 
     <LinearLayout
         android:id="@+id/L_UserInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="50dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@id/L_LoginButtons"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,6 +69,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/input"
+                android:backgroundTint="@color/white_70"
                 android:drawableLeft="@drawable/ic_baseline_email_24"
                 android:drawablePadding="10dp"
                 android:ems="10"
@@ -85,6 +102,7 @@
                 android:ems="10"
                 android:paddingLeft="10dp"
                 android:background="@drawable/input"
+                android:backgroundTint="@color/white_70"
                 android:drawableLeft="@drawable/baseline_key_24"
                 android:hint="Password"
                 android:inputType="textPassword"
@@ -101,7 +119,7 @@
         android:id="@+id/L_LoginButtons"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -112,8 +130,9 @@
             android:id="@+id/LoginSubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="60dp"
-            android:background="@drawable/rounded_button"
+            android:layout_marginBottom="50dp"
+            android:background="@drawable/input"
+            android:backgroundTint="@color/white_70"
             android:text="Login"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -123,14 +142,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/input"
+            android:backgroundTint="@color/white_70"
             android:text="Register" />
 
         <Button
             android:id="@+id/ForgotButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/input"
+            android:backgroundTint="@color/white_70"
             android:text="Forgot password" />
 
 
