@@ -70,6 +70,8 @@ class RecogniseActivity : AppCompatActivity() {
 
     private var time = 0f
 
+    private var recordingStatus = false
+
     // global broadcast receiver so we can unregister it
     private lateinit var respeckLiveUpdateReceiver: BroadcastReceiver
     private lateinit var thingyLiveUpdateReceiver: BroadcastReceiver
@@ -268,7 +270,7 @@ class RecogniseActivity : AppCompatActivity() {
                 "Sitting/Standing Coughing" -> recogImage.setImageResource(R.drawable.ic_baseline_man_24)
                 "Sitting/Standing Hyperventilating" -> recogImage.setImageResource(R.drawable.ic_baseline_man_24)
                 "Sitting/Standing Other" -> recogImage.setImageResource(R.drawable.ic_baseline_man_24)
-                "Shuffle walking" -> recogImage.setImageResource(R.drawable.ic_baseline_man_24)
+                "Shuffle walking" -> recogImage.setImageResource(R.drawable.shuffle)
                 "Running" -> recogImage.setImageResource(R.drawable.ic_baseline_directions_run_24)
                 "Normal walking" -> recogImage.setImageResource(R.drawable.ic_baseline_directions_walk_24)
                 "Miscellaneous movements" -> recogImage.setImageResource(R.drawable.misce)
@@ -276,12 +278,12 @@ class RecogniseActivity : AppCompatActivity() {
                 "Lying down on right Coughing" -> recogImage.setImageResource(R.drawable.ic_iying_down)
                 "Lying down on right Hyperventilating" -> recogImage.setImageResource(R.drawable.ic_iying_down)
                 "Lying down on right Other" -> recogImage.setImageResource(R.drawable.ic_iying_down)
-                "Lying down on stomach" -> recogImage.setImageResource(R.drawable.ic_iying_down)
-                "Lying down on stomach Coughing" -> recogImage.setImageResource(R.drawable.ic_iying_down)
-                "Lying down on stomach Hyperventilating" -> recogImage.setImageResource(R.drawable.ic_iying_down)
-                "Lying down on stomach Other" -> recogImage.setImageResource(R.drawable.ic_iying_down)
+                "Lying down on stomach" -> recogImage.setImageResource(R.drawable.lying_down_stomach)
+                "Lying down on stomach Coughing" -> recogImage.setImageResource(R.drawable.lying_down_stomach)
+                "Lying down on stomach Hyperventilating" -> recogImage.setImageResource(R.drawable.lying_down_stomach)
+                "Lying down on stomach Other" -> recogImage.setImageResource(R.drawable.lying_down_stomach)
                 "Lying down on left" -> recogImage.setImageResource(R.drawable.ic_iying_down)
-                " Lying down on left Coughing" -> recogImage.setImageResource(R.drawable.ic_iying_down)
+                "Lying down on left Coughing" -> recogImage.setImageResource(R.drawable.ic_iying_down)
                 "Lying down on left Hyperventilating" -> recogImage.setImageResource(R.drawable.ic_iying_down)
                 "Lying down on left Other" -> recogImage.setImageResource(R.drawable.ic_iying_down)
                 "Lying down back" -> recogImage.setImageResource(R.drawable.ic_iying_down)
@@ -290,7 +292,7 @@ class RecogniseActivity : AppCompatActivity() {
                 "Lying down back Other" -> recogImage.setImageResource(R.drawable.ic_iying_down)
                 "Descending stairs" -> recogImage.setImageResource(R.drawable.descending_stair)
                 "Ascending stairs" -> recogImage.setImageResource(R.drawable.ascending_stair)
-                else -> recogImage.setImageResource(R.drawable.ic_ellipsis)
+                else -> recogImage.setImageResource(R.drawable.baseline_blur_on_24)
             }
         }
     }
@@ -337,12 +339,11 @@ class RecogniseActivity : AppCompatActivity() {
         if(!useRespeck) {
             runOnUiThread {
                 recogniser.text = str
-                when(str) {
-                    "Sitting/Standing" -> recogImage.setImageResource(R.drawable.ic_baseline_man_24)
+                when(str) {                "Sitting/Standing" -> recogImage.setImageResource(R.drawable.ic_baseline_man_24)
                     "Sitting/Standing Coughing" -> recogImage.setImageResource(R.drawable.ic_baseline_man_24)
                     "Sitting/Standing Hyperventilating" -> recogImage.setImageResource(R.drawable.ic_baseline_man_24)
                     "Sitting/Standing Other" -> recogImage.setImageResource(R.drawable.ic_baseline_man_24)
-                    "Shuffle walking" -> recogImage.setImageResource(R.drawable.ic_baseline_man_24)
+                    "Shuffle walking" -> recogImage.setImageResource(R.drawable.shuffle)
                     "Running" -> recogImage.setImageResource(R.drawable.ic_baseline_directions_run_24)
                     "Normal walking" -> recogImage.setImageResource(R.drawable.ic_baseline_directions_walk_24)
                     "Miscellaneous movements" -> recogImage.setImageResource(R.drawable.misce)
@@ -350,10 +351,10 @@ class RecogniseActivity : AppCompatActivity() {
                     "Lying down on right Coughing" -> recogImage.setImageResource(R.drawable.ic_iying_down)
                     "Lying down on right Hyperventilating" -> recogImage.setImageResource(R.drawable.ic_iying_down)
                     "Lying down on right Other" -> recogImage.setImageResource(R.drawable.ic_iying_down)
-                    "Lying down on stomach" -> recogImage.setImageResource(R.drawable.ic_iying_down)
-                    "Lying down on stomach Coughing" -> recogImage.setImageResource(R.drawable.ic_iying_down)
-                    "Lying down on stomach Hyperventilating" -> recogImage.setImageResource(R.drawable.ic_iying_down)
-                    "Lying down on stomach Other" -> recogImage.setImageResource(R.drawable.ic_iying_down)
+                    "Lying down on stomach" -> recogImage.setImageResource(R.drawable.lying_down_stomach)
+                    "Lying down on stomach Coughing" -> recogImage.setImageResource(R.drawable.lying_down_stomach)
+                    "Lying down on stomach Hyperventilating" -> recogImage.setImageResource(R.drawable.lying_down_stomach)
+                    "Lying down on stomach Other" -> recogImage.setImageResource(R.drawable.lying_down_stomach)
                     "Lying down on left" -> recogImage.setImageResource(R.drawable.ic_iying_down)
                     "Lying down on left Coughing" -> recogImage.setImageResource(R.drawable.ic_iying_down)
                     "Lying down on left Hyperventilating" -> recogImage.setImageResource(R.drawable.ic_iying_down)
@@ -364,7 +365,7 @@ class RecogniseActivity : AppCompatActivity() {
                     "Lying down back Other" -> recogImage.setImageResource(R.drawable.ic_iying_down)
                     "Descending stairs" -> recogImage.setImageResource(R.drawable.descending_stair)
                     "Ascending stairs" -> recogImage.setImageResource(R.drawable.ascending_stair)
-                    else -> recogImage.setImageResource(R.drawable.ic_ellipsis)
+                    else -> recogImage.setImageResource(R.drawable.baseline_blur_on_24)
                 }
             }
         }
@@ -374,16 +375,17 @@ class RecogniseActivity : AppCompatActivity() {
      * This method is to enable a view
      * @param view
      */
-    private fun enableView(view: View) {
+    private fun enableView(view: Button) {
         view.isClickable = true
         view.isEnabled = true
+
     }
 
     /**
      * This method is to disable a view
      * @param view
      */
-    private fun disableView(view: View) {
+    private fun disableView(view: Button) {
         view.isClickable = false
         view.isEnabled = false
     }
@@ -473,6 +475,13 @@ class RecogniseActivity : AppCompatActivity() {
         prevTime = initialTime
         mIsRespeckRecognising = useRespeck
         mIsThingyRecognising = useThingy
+
+        disableView(startRecognisingButton)
+        startRecognisingButton.setTextColor(getColor(R.color.grey))
+        enableView(stopRecognisingButton)
+        stopRecognisingButton.setTextColor(getColor(R.color.red))
+
+        recordingStatus = true
     }
 
     /**
@@ -496,8 +505,13 @@ class RecogniseActivity : AppCompatActivity() {
         mIsThingyRecognising = false
         thinCounter=0
 
-        saveRecording(totalTime)
+        disableView(stopRecognisingButton)
+        stopRecognisingButton.setTextColor(getColor(R.color.grey))
+        enableView(startRecognisingButton)
+        startRecognisingButton.setTextColor(getColor(R.color.green))
 
+        saveRecording(totalTime)
+        recordingStatus = false
     }
 
     /**
@@ -654,6 +668,7 @@ class RecogniseActivity : AppCompatActivity() {
             Toast.makeText(this, "Error while saving recording!", Toast.LENGTH_SHORT).show()
             Log.e(TAG, "saveRespeckRecording: Error while writing to the respeck file: " + e.message)
         }
+
     }
 
 
@@ -844,6 +859,27 @@ class RecogniseActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * This method calls AlertDialog to confirm if the user
+     * wants to go back to the main menu
+     */
+    public override fun onBackPressed() {
+
+        if (recordingStatus){
+            val builder = android.app.AlertDialog.Builder(this)
+            builder.setTitle("Confirm go back?")
+            builder.setMessage("All unsaved data will be lost!")
+            builder.setPositiveButton("Yes") { _, _ ->
+                finish()
+            }
+            builder.setNegativeButton("No") { _, _ -> }
+            builder.show()
+        }
+
+        else{
+            finish()
+        }
+    }
 
     private fun mapToCsvString(m: MutableMap<String, Long>): String {
         val stringBuilder = StringBuilder()

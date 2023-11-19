@@ -62,6 +62,8 @@ class RecordingActivity : AppCompatActivity() {
     private lateinit var thingyGyro: TextView
     private lateinit var thingyMag: TextView
 
+    private var recordingStatus = false
+
     var thingyOn = false
     var respeckOn = false
 
@@ -367,6 +369,8 @@ class RecordingActivity : AppCompatActivity() {
             mIsRespeckRecording = true
             mIsThingyRecording = false
         }
+
+        recordingStatus = true
     }
 
     private fun stopRecording() {
@@ -381,7 +385,7 @@ class RecordingActivity : AppCompatActivity() {
         mIsThingyRecording = false
 
         saveRecording()
-
+        recordingStatus = false
     }
 
     private fun saveRecording() {
@@ -466,6 +470,23 @@ class RecordingActivity : AppCompatActivity() {
         }
     }
 
+    public override fun onBackPressed() {
+
+        if (recordingStatus){
+            val builder = android.app.AlertDialog.Builder(this)
+            builder.setTitle("Confirm go back?")
+            builder.setMessage("All unsaved data will be lost!")
+            builder.setPositiveButton("Yes") { _, _ ->
+                finish()
+            }
+            builder.setNegativeButton("No") { _, _ -> }
+            builder.show()
+        }
+
+        else{
+            finish()
+        }
+    }
     private fun getInputs() {
 
         universalSubjectId = univSubjectIdInput.text.toString().toLowerCase().trim()

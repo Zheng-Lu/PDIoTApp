@@ -200,10 +200,13 @@
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:textColor="@color/green"
-            android:text="▶️\nStart\nrecording"
+            android:text="Start\nrecording"
             android:textStyle="bold"
             android:id="@+id/start_recording_button"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/input"
+
+            android:drawableTop="@drawable/baseline_play_circle_outline_24"
+            android:paddingTop="6dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
@@ -217,7 +220,8 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
-            android:background="@drawable/rounded_button"
+            android:background="@drawable/input"
+
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:text="❌➡🗑️\nCancel" />
@@ -231,10 +235,14 @@
             android:layout_marginTop="80dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
-            android:background="@drawable/rounded_button"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="⏹️\nStop\nrecording" />
+            android:background="@drawable/input"
+
+            android:drawableTop="@drawable/baseline_stop_circle_24"
+            android:paddingTop="6dp"
+            android:text="Stop\nrecording"
+            />
 
 
     </LinearLayout>
